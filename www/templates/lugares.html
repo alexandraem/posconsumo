@@ -1,0 +1,15 @@
+<div class="content-section">
+                <h1 class="left-text">{{categoria.nombre|uppercase}}</h1>
+                <em class="left-text">{{categoria.descripcion}}</em>
+                <div class="overlay"></div>
+                <img class="responsive-image" src="img/campanias/campanias.png" alt="img">
+            </div>
+
+    <div ng-repeat="lugar in lugares" ng-click="mostrar( lugar )" class="content">
+        <div class="lugar">
+            <h4>{{lugar.vocero}}</h4>
+            <p>{{lugar.municipio}}, {{lugar.direccion}}</p>
+        </div>
+
+        <div class="decoration"></div>
+    </div>

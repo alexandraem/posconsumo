@@ -1,0 +1,50 @@
+{
+    "campanias": [{
+        "id": 0,
+        "nombre" :  "Zoo sobre ruedas",
+        "descripcion": "A partir de este Lunes, 31 de marzo, el zoológico Matecaña y el Ministerio de Medio Ambiente y desarrollo sostenible inicia la campaña de recolección de Llantas, con el objetivo de fomentar el reciclaje de elementos poscosumo y disminuir la contaminación ambiental. Se instalarán en la entrada principal módulos donde la población podrá acudir a canjear 2 Llantas por un boleto para la entrada al parque.",
+        "lugar" : "zoológico Matecaña",
+        "ciudad" : "Pereira",
+        "fecha" : "Del 31 de marzo al 30 de abril de 9am a 5pm",
+        "imagen" : "img/campanias/camp1.jpg",
+        "meta" : "Recolectar 5000 llantas en desuso. Las llantas recolectadas contienen alambre de acero, cuerdas de nylon y material de trabajo que son reutilizadas cuando tienen el tratamiento correcto.",
+        "logro" : "Con el cumplimiento de esta meta se enseñará a madres cabeza de familia de la ciudad a realizar artesanias y al construirlas serán exportadas a Chile.",
+        "informacion" : "www.minambiente.gov.co"
+    },
+    {
+        "id": 3,
+        "nombre" :  "Punto azul",
+        "descripcion": "Se trata del programa lanzado por el Ministerio de Medio Ambiente, en coordinación con la industria farmacéutica, para que los ciudadanos depositen los medicamentos vencidos en Puntos Azules, contenedores de recolección para fármacos vencidos, establecidos en droguerías y supermercados.",
+        "lugar" : "Supermercados y droguerías",
+        "ciudad" : "Actualmente Bogotá y Barranquilla, a partir del 30 de Abril en Manizales y Cali",
+        "fecha" : "A partir del 15 de Marzo de 2014",
+        "imagen" : "img/campanias/camp4.jpg",
+        "meta" : "Evitar que los lixiviados producidos por este tipo de medicamentos, terminen en quebradas o en aguas subterráneas, generando un tipo de contaminación que dura mucho tiempo y es difícil de eliminar.",
+        "logro" : "Prevenir el impacto ambiental, la falsificación, adulteración y el contrabando de medicamentos.",
+        "informacion" : "www.minambiente.gov.co"
+    },
+    {
+        "id": 1,
+        "nombre" :  "Baterías por el ambiente",
+        "descripcion": "La empresa Akita Motos S.A reta a 6 ciudades Colombianas para ver cuál es la que tiene mayor conciencia ecológica. Barranquilla, Manizales, Cali, Medellín, Cartagena y Bogotá afrontarán el reto que les propone como parte de una nueva iniciativa ecológica. El desafío consiste en una competencia para ver cuál de estas ciudades es capaz de reciclar más baterías de plomo ácido en menos tiempo.",
+        "lugar" : "Akita Motos",
+        "ciudad" : "Barranquilla, Manizales, Cali, Medellín, Cartagena y Bogotá",
+        "fecha" : "A partir del 1 de abril",
+        "imagen" : "img/campanias/camp2.jpg",
+         "meta" : "Cada ciudad tiene asignados unos objetivos de reciclaje fijados en función de la densidad demográfica asi que ganará aquella que logre su meta en menor tiempo.",
+        "logro" : "El premio consiste en un proyecto de reforestación que se llevará a cabo en la ciudad que antes logre superar el reto.",
+        "informacion" : "www.minambiente.gov.co"
+    },
+    {
+        "id": 2,
+        "nombre" :  "ElectroAmbiente",
+        "descripcion": "Nueva campaña para impulsar el reciclaje de los residuos electrónicos en Barranquilla.Los ciudadanos que entreguen un aparato eléctrico o electrónico en desuso en un almacen al comprar uno nuevo podrán participar en una promoción con un sorteo.",
+        "lugar" : "Almacenes de cadena que se encuentran en www.minambiente.gov.co",
+        "ciudad" : "Barranquilla",
+        "fecha" : "5 y 6 de abril de 2014",
+        "imagen" : "img/campanias/camp3.jpg",
+        "meta" : "Recolectar 3 Toneladas de elementos electrónicos en desuso ya que el interior de un electrodoméstico contiene metales pesados como cadmio, plomo, bromo y mercurio, al ser destruido éstos afectan el ambiente y la salud de las personas.",
+        "logro" : "Esta promoción tiene un doble objetivo por un lado favorecer el comercio en la ciudad y, por la otra , fomentar el hábito de los ciudadanos de llevar los aparatos que ya no funcionan al almacen cuando quieran comprar uno nuevo.",
+        "informacion" : "www.minambiente.gov.co"
+    }]
+}

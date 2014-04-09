@@ -1,0 +1,21 @@
+<div>
+    <img class="responsive-image" src="{{campain.imagen}}" alt="img">
+    <h4>{{campain.nombre}}</h4>
+    <p>{{campain.descripcion}}</p>
+    <p><strong>Logro: </strong>{{campain.logro}}</p>
+    <p><strong>Meta: </strong>{{campain.meta}}</p>
+    <ul class="icon-list">
+        <li class="calendar-list">{{campain.fecha}}</li>
+        <li class="flag-list">{{campain.lugar}} - {{campain.ciudad}}</li>
+        <li class="info-list"><a href="http://{{campain.informacion}}"target="_blank" >{{campain.informacion}}</a></li>
+    </ul>
+</div>
+
+<div class="content center-text">
+    <h4 class="center-text">Compártelo</h4>
+    <button class="button button-blue" onclick="openLinkInBrowser('https://www.facebook.com/sharer/sharer.php?u=http://www.minambiente.gov.co/web/index.html');"><span>Facebook</span></button>
+
+    <button class="button button-blue" onclick="openLinkInBrowser('https://twitter.com/intent/tweet?text=Visita%20http://www.minambiente.gov.co/web/index.html');"><span>Twitter</span></button>
+
+</div>
+<div class="decoration"></div>

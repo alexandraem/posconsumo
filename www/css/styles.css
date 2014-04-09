@@ -1,0 +1,148 @@
+.content-section{
+    min-height: 100px;
+}
+body .maps-container{
+    max-height: 200px;
+}
+.lugar{
+    margin-bottom: 10px;
+}
+.lugar h4{
+    margin-bottom: 5px;
+}
+.lugar p{
+    margin-bottom: 0;
+}
+body .static-notification-blue{
+    padding: 10px 20px;
+    font-size: 20px;
+}
+body .static-notification-blue p{
+    font-size: 14px;
+}
+
+.titulo-pregunta,
+.feed-respuesta{
+    font-weight: 300;
+line-height: 26px;
+text-align: center;
+padding: 20px 0;
+}
+body .button{
+    font-size: 16px;
+}
+
+
+.campanias-nav {
+    background-image: url(../img/PNG/leaf.png);
+    background-position: 20px;
+}
+
+.donde-nav {
+    background-image: url(../img/PNG/earth.png);
+    background-position: 20px;
+}
+
+.ganar-nav {
+    background-image: url(../img/PNG/badge.png);
+    background-position: 20px;
+}
+
+.ayudo-nav {
+    background-image: url(../img/PNG/medicine.png);
+    background-position: 20px;
+}
+
+.vida-nav {
+    background-image: url(../img/PNG/tree.png);
+    background-position: 20px;
+}
+
+.mis-nav {
+    background-image: url(../img/PNG/battery.png);
+    background-position: 20px;
+}
+
+
+#contador{
+    text-align: center;
+}
+#contador img{
+    width: 25px;
+    display: inline-block;
+    margin: 0 auto;
+}
+#contador .cantidad{
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 25px;
+    padding: 10px 0;
+    text-align center;
+}
+.logo{
+    height: 200px;
+}
+.inicio{
+    text-align: left;
+    position: relative;
+}
+.inicio img{
+    vertical-align: top;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    margin: 0 8px 0 -25px;
+}
+
+.inicio{
+    overflow: visible;
+    text-align: center;
+    position: relative;
+    z-index: 800;
+}
+.inicio .center-text{
+    margin-top: -52px;
+    vertical-align: top;
+    line-height: 40px;
+    color: #27ae60;
+    background: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px #aaa;
+    font-size: 34px;
+}
+
+.footer{
+    width: 100%;
+}
+
+#map-canvas{
+    height: 500px;
+}
+
+.one-third {
+	width: 32%;
+	float: left;
+	margin-right: 2%;
+}
+
+.responsive-image {
+	margin-bottom: 10px;
+}
+
+.decoration {
+	margin-bottom: 10px;
+}
+
+#encHome{
+	position:relative;
+	background: #fff;
+}
+
+.logosEnc{
+	position: absolute;
+	top: 5px;
+	width: 80%;
+	left: 15%;
+}
+

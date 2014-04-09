@@ -1,0 +1,12 @@
+<div ng-repeat="campain in campaniaLista">
+    <div ng-click="mostrar( campain )">
+        <img class="responsive-image" ng-src="{{campain.imagen}}" alt="img">
+        <h4>{{campain.nombre}}</h4>
+        <p>{{campain.meta}}</p>
+        <ul class="icon-list">
+            <li class="calendar-list">{{campain.fecha}}</li>
+            <li class="flag-list">{{campain.ciudad}}</li>
+        </ul>
+    </div>
+    <div class="decoration"></div>
+</div>

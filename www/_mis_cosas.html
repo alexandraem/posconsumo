@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" ng-app="ambienteApp">
+<head>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+	<title>Inicio</title>
+
+
+    <link rel="stylesheet" href="libs/theme/code/styles/colors/green.css">
+    <link rel="stylesheet" href="libs/theme/code/styles/colorbox.css">
+    <link rel="stylesheet" href="libs/theme/code/styles/framework.css">
+    <link rel="stylesheet" href="libs/theme/code/styles/owl.carousel.css">
+    <link rel="stylesheet" href="libs/theme/code/styles/owl.theme.css">
+    <link rel="stylesheet" href="libs/theme/code/styles/swipebox.css">
+    <link rel="stylesheet" href="libs/theme/code/styles/style.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+
+    <script type="text/javascript" src="libs/theme/code/scripts/jquery.js"></script>
+    <script type="text/javascript" src="libs/theme/code/scripts/jquery.swipebox.js"></script>
+    <script type="text/javascript" src="libs/theme/code/scripts/jqueryui.js"></script>
+    <script type="text/javascript" src="libs/theme/code/scripts/colorbox.js"></script>
+    <script type="text/javascript" src="libs/theme/code/scripts/snap.js"></script>
+    <script type="text/javascript" src="libs/theme/code/scripts/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="libs/theme/code/scripts/framework.launcher.js"></script>
+    <script type="text/javascript" src="libs/theme/code/scripts/framework.js"></script>
+    <script type="text/javascript" src="libs/theme/code/scripts/custom.js"></script>
+    <script type="text/javascript" src="libs/theme/code/scripts/contact.js"></script>
+
+
+    <script src="libs/js/angular.min.js"></script>
+    <script src="libs/js/angular-route.min.js"></script>
+    <script src="libs/js/angular-sanitize.min.js"></script>
+
+    <script type="text/javascript" src="js/app_vida_util.js"></script>
+    <!--
+    <script type="text/javascript" src="cordova.js"></script>
+    !-->
+
+    <script type="text/javascript" src="js/debug.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+
+</head>
+<body>
+
+    <div id="preloader">
+        <div id="status">
+            <p class="center-text">
+                Cargando ...
+                <em>Depende de la velocidad de conexión!</em>
+            </p>
+        </div>
+    </div>
+
+    <div class="all-elements">
+
+        <div id="sidebar" class="page-sidebar">
+            <div class="page-sidebar-scroll">
+
+                <div class="sidebar-controls">
+                    <a target="_blank" href="https://es-la.facebook.com/pages/Ministerio-de-Ambiente-y-Desarrollo-Sostenible/118961431546715" class="sidebar-face"></a>
+                    <a target="_blank" href="https://twitter.com/MinAmbienteCo" class="sidebar-twit"></a>
+                    <a href="#" class="sidebar-close"></a>
+                </div>
+
+                <div class="sidebar-header">
+                    <h4 class="center-text">Cristian Jimenez</h4>
+                    <em class="center-text">150 puntos</em>
+                </div>
+
+                <div class="navigation-items">
+
+                    <div class="sidebar-decoration"></div>
+
+                    <div class="nav-item">
+                       <a href="index.html" class="home-nav">Bienvenido</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-breadcrumb">
+                    <div class="sidebar-decoration"></div>
+                    <p>Navegación</p>
+                    <div class="sidebar-decoration"></div>
+                </div>
+
+                <div class="navigation-items">
+                    <div class="nav-item">
+                       <a href="_campanias.html" class="campanias-nav">Campañas</a>
+                    </div>
+
+                    <div class="sidebar-decoration"></div>
+
+                    <div class="nav-item">
+                        <a href="_donde.html" class="donde-nav" >¿Dónde reciclar?</a>
+                    </div>
+
+                    <div class="sidebar-decoration"></div>
+
+
+                    <div class="nav-item">
+                        <a href="_ganar.html" class="ganar-nav">¡Ganar puntos!</a>
+                    </div>
+
+                    <div class="sidebar-decoration"></div>
+
+                    <div class="nav-item">
+                        <a href="_cuanto.html" class="ayudo-nav">¿Cuánto ayudo?</a>
+                    </div>
+
+                    <div class="sidebar-decoration"></div>
+
+                    <div class="nav-item">
+                        <a href="_vida_verde.html" class="vida-nav">Vida verde</a>
+                    </div>
+
+
+                    <div class="sidebar-decoration"></div>
+
+                    <div class="nav-item">
+                        <a href="_mis_cosas.html" class="mis-nav">Vida útil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="content" class="page-content">
+            <div class="content-controls solid-color fixed-header">
+                <a href="#" class="deploy-sidebar"></a>
+                <em class="content-title">Vida Útil</em>
+            </div>
+
+             <div class="fixed-header-clear"></div>
+
+            <div class="content">
+
+                <ng-view></ng-view>
+
+                <div class="clear"></div>
+            </div>
+        </div>
+    <div>
+
+	<script type="text/javascript" >
+		app.initialize()
+	</script>
+</body>
+</html>

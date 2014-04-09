@@ -1,0 +1,62 @@
+<div ng-show="vista=='pregunta'">
+
+    <div class="content">
+        <h1 class="titulo-pregunta">{{pregunta.pregunta}}</h1>
+    </div>
+
+    <div class="decoration"></div>
+
+    <div class="content">
+            <div class="static-notification-blue" ng-click="calificar(pregunta.respuestas[0])">
+                <p class="center-text">{{ pregunta.respuestas[0].rta }}</p>
+            </div>
+
+            <div class="static-notification-blue" ng-click="calificar(pregunta.respuestas[1])">
+                <p class="center-text">{{ pregunta.respuestas[1].rta }}</p>
+            </div>
+
+            <div class="static-notification-blue" ng-click="calificar(pregunta.respuestas[2])">
+                <p class="center-text">{{ pregunta.respuestas[2].rta }}</p>
+            </div>
+
+            <div class="static-notification-blue" ng-click="calificar(pregunta.respuestas[3])">
+                <p class="center-text">{{ pregunta.respuestas[3].rta }}</p>
+            </div>
+
+    </div>
+
+</div>
+
+<div ng-show="vista == 'respuesta'">
+    <div class="content">
+        <h1 class="feed-respuesta">{{respuesta.feed}}</h1>
+    </div>
+    <div class="decoration"></div>
+    <div class="content">
+        <button class="button button-green" ng-click="ir_siguiente()">Siguiente</button>
+    </div>
+
+</div>
+
+
+<div ng-show="vista == 'final'">
+
+    <div class="content">
+        <div ng-show="puntos>0" class="static-notification-green tap-dismiss-notification">
+            <p class="center-text uppercase">Felicidades! Has ganado</p>
+            <p class="center-text uppercase">
+                <b>{{puntos}} puntos.</b>
+            </p>
+            <h4 class="center-text">Compártelo con tus amigos</h4>
+            <p class="center-text">
+                <button class="button button-blue" onclick="openLinkInBrowser('https://www.facebook.com/sharer/sharer.php?u=He%20obtenido%2010%20puntos%20en%20LeafApp');">Facebook</button>
+                <button class="button button-blue" onclick="openLinkInBrowser('https://twitter.com/intent/tweet?text=He%20obtenido%2010%20puntos%20en%20LeafApp');" >Twitter</button>
+            </p>
+        </div>
+    </div>
+
+
+    <div ng-show="puntos==0" class="static-notification-blue tap-dismiss-notification">
+        <p class="center-text uppercase">Lo sentimos! No has logrado puntos. Recuerda que puedes seguir intentando, que seguro obtendrás muchos puntos más.</p>
+    </div>
+</div>

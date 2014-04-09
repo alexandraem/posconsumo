@@ -1,0 +1,26 @@
+{
+"d":[{
+        "PartitionKey":"388014AF-CAD2-4AEC-940F-C6C5B2B449B8",
+        "RowKey":"64F2D03A-ADF6-4DFB-B4A0-C38C5D36829C",
+        "vocero":"HOSPIRA",
+        "categoria":"MEDICAMENTOS",
+        "subcategoria":"LHIH",
+        "email":"martha.castillo@hospira.com",
+        "departamento":"BOGOTA",
+        "municipio":"BOGOTA",
+        "direccion":"Carrera 85 D No. 46A-65 Bodega 21 parque empresarial  San Cayetano",
+        "horario":""
+    },
+    {
+        "PartitionKey":"388014AF-CAD2-4AEC-940F-C6C5B2B449B8",
+        "RowKey":"64F2D03A-ADF6-4DFB-B4A0-C38C5D36829C",
+        "vocero":"HOSPIRA",
+        "categoria":"MEDICAMENTOS",
+        "subcategoria":"LHIH",
+        "email":"martha.castillo@hospira.com",
+        "departamento":"BOGOTA",
+        "municipio":"BOGOTA",
+        "direccion":"Carrera 85 D No. 46A-65 Bodega 21 parque empresarial  San Cayetano",
+        "horario":""
+    }
+]}
