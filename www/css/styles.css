@@ -101,15 +101,16 @@ body .button{
     position: relative;
     z-index: 800;
 }
+
 .inicio .center-text{
-    margin-top: -52px;
     vertical-align: top;
     line-height: 40px;
     color: #27ae60;
     background: #fff;
     padding: 10px 20px;
-    box-shadow: 0 0 10px #aaa;
-    font-size: 34px;
+    font-size: 25px;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .footer{
@@ -128,6 +129,7 @@ body .button{
 
 .responsive-image {
 	margin-bottom: 10px;
+    margin: 0;
 }
 
 .decoration {
@@ -139,10 +141,123 @@ body .button{
 	background: #fff;
 }
 
+.homepage-slider{
+    margin-top: 0;
+    margin-bottom: 0;
+    height: auto;
+}
 .logosEnc{
-	position: absolute;
-	top: 5px;
-	width: 80%;
-	left: 15%;
+    position: absolute;
+    display: block;
+    height: 38px;
+    top: 50%;
+    margin-top: -19px;
+    right: 0;
+}
+
+.divLogosEnc{
+    position: absolute;
+    left: 50px;
+    right: 2%;
+    height: 100%;
+    top: 0;
+    text-align: right;
+    line-height: 100%;
+}
+
+#contBanner{
+    margin-bottom: 0;
+}
+
+.indexContent{
+    min-height: 500px !important;
+}
+
+.imgLogos{
+    display: inline-block;
+    height: 70%;
+    margin-right: 2%;
+}
+
+.divImgLogos{
+    height: 100%;
+    text-align: right;
+}
+
+.content-title{
+    margin-top:-43px;
+}
+
+@media (min-width: 760px){
+    .menuPrincipal>.one-half-responsive{
+        width: 70%;
+        margin: 0 auto !important;
+        float: none;
+        padding-top: 5%;
+    }
+    .inicio .center-text
+    {
+        font-size: 45px; 
+        margin-top: 20px;       
+    }
+    #subTitHome{
+        font-size: 25px;
+        margin-top: 15px;
+    }
+    
+}
+
+@media (min-height: 500px){
+    .indexContent{
+        min-height: 550px !important;
+    }
+}
+
+@media (min-height: 600px){
+    .indexContent{
+        min-height: 640px !important;
+    }
+}
+
+@media (min-height:700px){
+    .indexContent{
+        min-height: 755px !important;
+    }
+}
+
+@media (min-height: 800px){
+    .indexContent{
+        min-height: 855px !important;
+    }
+}
+
+@media (min-height: 900px){
+    .indexContent{
+        min-height: 970px !important;
+    }
+}
+
+@media (min-height: 1000px){
+    .indexContent{
+        min-height: 1024px !important;
+    }
+}
+
+@media (min-height: 1100px){
+    .indexContent{
+        min-height: 1124px !important;
+    }
+}
+
+@media (min-height: 1200px){
+    .indexContent{
+        min-height: 1290px !important;
+    }
+}
+
+@media (min-height: 1900px){
+    .indexContent{
+        min-height: 1930px !important;
+    }
 }
 
