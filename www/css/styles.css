@@ -199,16 +199,17 @@ body .button{
 .lblCombosFiltro{
     margin-left: 20px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .CombosFiltro{
     margin-left: 20px;
     font-family: 'Open Sans', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     width: 80%;
     border: 1px solid #ccc;
     margin-bottom: 10px;
+    padding-left: 4px;
 }
 
 @media (min-width: 760px){
