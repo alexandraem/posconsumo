@@ -189,6 +189,28 @@ body .button{
     margin-top:-40px;
 }
 
+.catDondeTit{
+    color: #1f1f1f !important;
+    position: initial !important;
+    margin-left: 20px;
+    margin-top: 10px !important;
+}
+
+.lblCombosFiltro{
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.CombosFiltro{
+    margin-left: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    width: 80%;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
 @media (min-width: 760px){
     .menuPrincipal>.one-half-responsive{
         width: 70%;
@@ -204,6 +226,12 @@ body .button{
     #subTitHome{
         font-size: 25px;
         margin-top: 15px;
+    }
+    #contentCategorias>.one-half-responsive{
+        width: 70%;
+        margin: 0 auto !important;
+        float: none;
+        padding-top: 5%;
     }
     
 }

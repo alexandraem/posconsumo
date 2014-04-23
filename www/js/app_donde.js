@@ -161,3 +161,20 @@ function getLugares(categoria, success ){
             success(lugares)
         })
 }
+
+//////////////// Otros métodos
+
+//Cómo hacer esto con Angular??
+//$(document).ready(function () {
+  //     CargarCiudades();
+//}
+
+function CargarCiudades(){
+    var Depto = document.getElementById('combo_departamento').value;
+    document.getElementById('combo_municipio').value = Depto;
+}
+
+function CargarInfo(){
+    var mncpio = document.getElementById('combo_municipio').value;
+    console.log(mncpio);
+}

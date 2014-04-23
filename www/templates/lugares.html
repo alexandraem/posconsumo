@@ -1,9 +1,27 @@
 <div class="content-section">
-                <h1 class="left-text">{{categoria.nombre|uppercase}}</h1>
-                <em class="left-text">{{categoria.descripcion}}</em>
+                <h1 class="left-text catDondeTit">{{categoria.nombre|uppercase}}</h1>
+                <label class="lblCombosFiltro">Seleccione un departamento</label>
+                <select id="combo_departamento" name="combo_departamento" class="CombosFiltro" onchange="CargarCiudades()">
+                    <option value="Amazonas">Amazonas</option>
+                    <option value="Antioquia">Antioquia</option>
+                    <option value="Atlantico">Atlántico</option>
+                    <option value="Boyacá">Boyacá</option>
+                    <option value="Caldas">Caldas</option>
+                    <option value="Cundinamarca">Cundinamarca</option>
+                </select>
+                <label class="lblCombosFiltro">Seleccione un municipio</label>
+                <select id="combo_municipio" name="combo_municipio" class="CombosFiltro" onchange="CargarInfo()">
+                    <option value="Amazonas">Leticia</option>
+                    <option value="Antioquia">Medellín</option>
+                    <option value="Caldas">Manizales</option>
+                    <option value="Atlantico">Barranquilla</option>
+                    <option value="Cundinamarca">Bogotá</option>
+                    <option value="Boyacá">Duitama</option>
+                </select>
+                   <!-- <em class="left-text">{{categoria.descripcion}}</em>
                 <div class="overlay"></div>
-                <img class="responsive-image" src="img/campanias/campanias.png" alt="img">
-            </div>
+                <img class="responsive-image" src="img/campanias/campanias.png" alt="img">-->
+</div>
 
     <div ng-repeat="lugar in lugares" ng-click="mostrar( lugar )" class="content">
         <div class="lugar">

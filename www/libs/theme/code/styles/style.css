@@ -238,7 +238,7 @@ and (width : 798px){
 	font-size:16px;
 	position:absolute;
 	color:#FFFFFF;
-	margin-top:30px;
+	margin-top:20px;
 	left:20px;
 	z-index:99999;
 }
@@ -248,7 +248,7 @@ and (width : 798px){
 	font-style:normal;
 	position:absolute;
 	color:#a3a3a3;
-	margin-top:55px;
+	margin-top:60px;
 	left:20px;
 	z-index:99999;
 }
