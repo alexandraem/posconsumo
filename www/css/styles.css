@@ -175,17 +175,18 @@ body .button{
 
 .imgLogos{
     display: inline-block;
-    height: 70%;
+    height: 65%;
     margin-right: 2%;
 }
 
 .divImgLogos{
     height: 100%;
     text-align: right;
+    margin-left: 60px;
 }
 
-.content-title{
-    margin-top:-43px;
+#titleHome{
+    margin-top:-40px;
 }
 
 @media (min-width: 760px){
