@@ -136,6 +136,10 @@ body .button{
 	margin-bottom: 10px;
 }
 
+#decoration-intermedio{
+    margin-top: 10px;
+}
+
 #encHome{
 	position:relative;
 	background: #fff;
@@ -210,6 +214,46 @@ body .button{
     border: 1px solid #ccc;
     margin-bottom: 10px;
     padding-left: 4px;
+}
+
+#titRegistro{
+    margin-top: 10px !important;
+    height: 50px;
+}
+
+#emRegistro{
+    margin-top: 10px !important;
+}
+
+.subTitRegistro{
+    color: #9F9C9C;
+}
+
+#logoRegistro{
+    margin-top: 20%;
+}
+
+#txtRegistro{
+    margin: 0 auto;
+    width: 80%;
+    border: solid 1px #ccc;
+    padding: 3px;
+    font-size: 14px;
+}
+
+.btnRgis{
+    font-size: 14px !important;
+    margin-top: 10px;
+} 
+
+.ppalRegistro{
+    margin-top: 20px;
+}
+
+#alertaRegistro{
+    margin: 0 auto;
+    width: 80%;
+    color: red;
 }
 
 @media (min-width: 760px){

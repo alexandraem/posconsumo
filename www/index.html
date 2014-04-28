@@ -38,6 +38,7 @@
 
     <script type="text/javascript" src="js/debug.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/registro.js"></script>
     
 </head>
 <body>
@@ -63,7 +64,7 @@
                 </div>
 
                 <div class="sidebar-header">
-                    <h4 class="center-text">Cristian Jimenez</h4>
+                    <h4 class="center-text" id="nombreUsuario"></h4>
                     <em class="center-text">150 puntos</em>
                 </div>
 
@@ -207,7 +208,7 @@ Porque despues de usar, hay que colectar
 				</div>
 			</div>
 
-            <div class="decoration hide-if-responsive"></div>
+            <div class="decoration hide-if-responsive" id="decoration-intermedio"></div>
 
             <div class="one-half-responsive last-column">
 				
@@ -247,6 +248,12 @@ Porque despues de usar, hay que colectar
 
 	<script type="text/javascript" >
 		app.initialize()
+        $( document ).ready(function() {
+           var nombre = localStorage.getItem("NombreRegistro");
+           $("#nombreUsuario").text(nombre);
+            configurar_db();
+        });
+        
 	</script>
 </body>
 </html>

@@ -96,6 +96,6 @@
 
     <access origin="*" />
 
-    <content src="index.html" />
+    <content src="registro.html" />
 
 </widget>
