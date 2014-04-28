@@ -66,6 +66,16 @@ ambienteApp.controller( 'PreguntasCtrl', ['$scope', '$http', '$location',
         $scope.ir_siguiente = function(){
             if ($scope.pregunta == null){
                 $scope.vista = 'final'
+
+                if(localStorage.getItem("PuntosRegistro") != null && localStorage.getItem("PuntosRegistro") != ""){
+                    //Verifica si ha ganado puntos, y si estos no son mayores a los que ganó
+                    //en el juego actual entonces reemplaza el valor
+                    if(localStorage.getItem("PuntosRegistro") < $scope.puntos){
+                        localStorage.setItem("PuntosRegistro", $scope.puntos);
+                    }
+                }else{
+                    localStorage.setItem("PuntosRegistro", $scope.puntos);
+                }
             }else{
                 $scope.vista = 'pregunta'
             }

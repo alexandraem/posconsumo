@@ -61,7 +61,7 @@
 
                 <div class="sidebar-header">
                     <h4 class="center-text" id="nombreUsuario"></h4>
-                    <em class="center-text">150 puntos</em>
+                    <em class="center-text" id="puntosUsuario"></em>
                 </div>
 
                 <div class="navigation-items">
@@ -136,6 +136,13 @@
         $( document ).ready(function() {
            var nombre = localStorage.getItem("NombreRegistro");
            $("#nombreUsuario").text(nombre);
+
+           if(localStorage.getItem("PuntosRegistro") != null && localStorage.getItem("PuntosRegistro") != ""){
+                var puntos = localStorage.getItem("PuntosRegistro");
+                $("#puntosUsuario").text(puntos +" Puntos");
+           }else{
+                $("#puntosUsuario").text("0 Puntos");
+           }
         });
 	</script>
 </body>

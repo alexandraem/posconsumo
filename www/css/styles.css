@@ -197,7 +197,7 @@ body .button{
     color: #1f1f1f !important;
     position: initial !important;
     margin-left: 20px;
-    margin-top: 10px !important;
+    margin-top: 5px !important;
 }
 
 .lblCombosFiltro{
@@ -254,6 +254,18 @@ body .button{
     margin: 0 auto;
     width: 80%;
     color: red;
+}
+
+.btnVolver{
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    margin-right: 10px;
+    margin-top: -20px;
+}
+
+.btnVolver>button{
+    padding: 4px 7px;
 }
 
 @media (min-width: 760px){

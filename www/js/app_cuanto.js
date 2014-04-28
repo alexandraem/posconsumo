@@ -71,9 +71,6 @@ ambienteApp.config( ['$routeProvider', '$locationProvider',
 }]);
 
 
-
-
-
 function getPuntajes( categoria, success ){
     $.getJSON(
         'data/cuanto_ayudo.json',
@@ -87,3 +84,4 @@ function getPuntajes( categoria, success ){
             success(puntajes_final)
         })
 }
+

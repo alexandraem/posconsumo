@@ -89,10 +89,7 @@ ambienteApp.config( ['$routeProvider', '$locationProvider',
       otherwise({
         redirectTo: '/categorias'
       });
-
 }]);
-
-
 
 
 
@@ -177,4 +174,8 @@ function CargarCiudades(){
 function CargarInfo(){
     var mncpio = document.getElementById('combo_municipio').value;
     console.log(mncpio);
+}
+
+function Volver() {
+    window.location.href = "_donde.html#/categorias";
 }
