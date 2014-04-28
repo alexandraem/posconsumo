@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="sidebar-header">
-                    <h4 class="center-text">Cristian Jimenez</h4>
+                    <h4 class="center-text" id="nombreUsuario"></h4>
                     <em class="center-text">150 puntos</em>
                 </div>
 
@@ -150,6 +150,10 @@
 
 	<script type="text/javascript" >
 		app.initialize()
+        $( document ).ready(function() {
+           var nombre = localStorage.getItem("NombreRegistro");
+           $("#nombreUsuario").text(nombre);
+        });
 	</script>
 </body>
 </html>
