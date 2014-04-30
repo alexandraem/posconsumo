@@ -1,7 +1,7 @@
 function configurar_db() {
 
     function execute(tx) {
-        tx.executeSql('CREATE TABLE IF NOT EXISTS registro (nombre)');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS registro (nombre, id)');
         //tx.executeSql("INSERT INTO favoritos (fecha_ingreso, convocatoria, fecha_fin) "+
         //     "SELECT '2013-10-03', 'ABCconvocatoria', '2013-10-10' WHERE NOT EXISTS (SELECT * FROM favoritos WHERE convocatoria = 'ABCconvocatoria')");
     }
@@ -64,7 +64,7 @@ function GuardarRegistro(tx) {
     var valor = $("#txtRegistro").val();
     if(valor != ""){
         localStorage.setItem("NombreRegistro", valor);
-         tx.executeSql("INSERT INTO registro (nombre) VALUES ('"+valor+"')", [], redireccionar, function (error) {
+         tx.executeSql('INSERT INTO registro (nombre, id) VALUES ("'+valor+'", "1")', [], redireccionar, function (error) {
             console.log("Guardar nombre error: " + error)
         });
     }else{
@@ -91,7 +91,7 @@ function MasTarde() {
 
 function GuardarMasTarde(tx) {
     localStorage.setItem("NombreRegistro", "Agregar nombre");
-    tx.executeSql("INSERT INTO registro (nombre) VALUES ('Agregar nombre')", [], redireccionar, function (error) {
+    tx.executeSql('INSERT INTO registro (nombre, id) VALUES ("Agregar nombre", "1")', [], redireccionar, function (error) {
         console.log("Guardar Agregar nombre error: " + error)
     });
 }

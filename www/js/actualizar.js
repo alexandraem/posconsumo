@@ -1,7 +1,7 @@
 function configurar_db() {
 
     function execute(tx) {
-        tx.executeSql('CREATE TABLE IF NOT EXISTS registro (nombre)');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS registro (nombre, id)');
     }
 
     function error(error) {
@@ -62,11 +62,8 @@ function GuardarNom() {
 function GuardarRegistro(tx) {
     var valor = $("#txtRegistro").val();
     if(valor != ""){
-        //localStorage.setItem("NombreRegistro", valor);
-        var x = localStorage.getItem("NombreRegistro");
-        console.log(x);
-        //oJOOOOOOOO ERROR EN LA ACTUALIZACIÓN AQUI
-         tx.executeSql("UPDATE registro SET nombre = 'alexa' WHERE nombre == 'Leidy Alexandra Espinosa M')", [], redireccionar, function (error) {
+            localStorage.setItem("NombreRegistro", valor);
+            tx.executeSql("UPDATE registro SET nombre = '"+valor+"' WHERE id = '1'", [], redireccionar, function (error) {
             console.log("Actualizar nombre error: " + error)
         });
     }else{
