@@ -28,10 +28,15 @@
 </div>
 
 <div ng-show="vista == 'respuesta'">
+
     <div class="content">
-        <h1 class="feed-respuesta">{{respuesta.feed}}</h1>
+         <img class="imgSabias" src="img/sabias4.jpg" alt="">
+         <img class="imgRta" src="img/ok.png" alt="" ng-show="respuesta.valoracion == 'true'">
+         <img class="imgRta" src="img/error.png" alt="" ng-show="respuesta.valoracion != 'true'">
+        <h1 class="feed-respuesta rta">{{respuesta.feed}}</h1>
     </div>
     <div class="decoration"></div>
+
     <div class="content">
         <button class="button button-green" ng-click="ir_siguiente()">Siguiente</button>
     </div>
