@@ -31,7 +31,9 @@ ambienteApp.directive('backButton', function(){
 
 ambienteApp.controller( 'PreguntasCtrl', ['$scope', '$http', '$location',
     function( $scope, $http, $location ) {
-        getPreguntas(function( preguntas ){
+        
+        //Esto se ejecuta apenas el controlador se carga
+        getPreguntas(function( preguntas ){//función que recibe por parámetro es success
             $scope.index = 0
             $scope.vista = 'pregunta'
             $scope.preguntas = preguntas
@@ -41,11 +43,16 @@ ambienteApp.controller( 'PreguntasCtrl', ['$scope', '$http', '$location',
             $scope.$apply()
         })
 
-        $scope.calificar = function( respuesta ){
-            $scope.respuesta = respuesta
+        $scope.calificar = function( respuestaSeleccionada ){
+           // $scope.respuesta = respuestaSeleccionada
 
-            if(respuesta.valoracion == 'true'){
+            if($scope.pregunta.respuesta == respuestaSeleccionada){
                 $scope.puntos += 10
+                $scope.correcto = true;
+                $scope.feed =  $scope.pregunta.textoacierto;
+            }else{
+                $scope.correcto = false;
+                $scope.feed =  $scope.pregunta.textoerror;
             }
 
 
@@ -104,8 +111,8 @@ ambienteApp.config( ['$routeProvider', '$locationProvider',
 
 function getPreguntas( success ){
     $.getJSON(
-        'data/preguntas.json',
+        'http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/pregrecpostconsumo?$format=json',
         function(data, textStatus, jqXHR){
-            success(data.preguntas)
+            success(data.d)
         })
 }

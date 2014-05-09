@@ -14,16 +14,27 @@ ambienteApp.controller( 'CampaniasCtrl', ['$scope', '$http', '$location',
         })
 
         $scope.mostrar = function(campania){
-            $location.path("/" + campania.id)
+            $location.path("/" + campania.nid)
         }
+
+
     }
 ])
 ambienteApp.controller( 'CampaniaDetalleCtrl', ['$scope', '$http', '$location', '$routeParams',
     function( $scope, $http, $location, $routeParams ) {
         getCampania( $routeParams.campaniaId , function( campain ){
             $scope.campain = campain
+            $scope.campain.informacion = $scope.campain.informacion.replace('y','&'); 
             $scope.$apply()
         })
+
+        $scope.CompartirFB = function(url){
+            openLinkInBrowser('https://www.facebook.com/sharer/sharer.php?u='+escape(url)+'');
+        }
+
+        $scope.CompartirTW = function(url){
+            openLinkInBrowser('https://twitter.com/intent/tweet?text=Visita%20'+escape(url)+'');
+        }
     }
 ])
 
@@ -55,12 +66,13 @@ ambienteApp.config( ['$routeProvider', '$locationProvider',
 
 function getCampania( id , success){
     $.getJSON(
-        'data/campanias.json',
+        "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/campanas?$filter=nid%20EQ%20+"+id+"+&$format=json",
         function(data, textStatus, jqXHR){
-            var campanias = data.campanias
+            var campanias = data.d
             var encontrado = false
+            console.log(campanias);
             for (var i = 0; i < campanias.length; i++) {
-                if ( campanias[i].id == id ){
+                if ( campanias[i].nid == id ){
                     success( campanias[i] )
                     encontrado = true
                     break;
@@ -76,8 +88,15 @@ function getCampania( id , success){
 
 function getCampanias( success ){
     $.getJSON(
-        'data/campanias.json',
+        'http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/campanas?$format=json',
         function(data, textStatus, jqXHR){
-            success(data.campanias)
+            console.log(data);
+            success(data.d)
         })
+}
+
+function CompartirFB( urlCompartir ){
+    var url = urlCompartir.replace('-','&');
+    console.log('https://www.facebook.com/sharer/sharer.php?u='+url+'');
+    openLinkInBrowser('https://www.facebook.com/sharer/sharer.php?u='+url+'');
 }

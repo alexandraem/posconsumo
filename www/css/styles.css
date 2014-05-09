@@ -219,6 +219,9 @@ body .button{
     border: 1px solid #ccc;
     margin-bottom: 10px;
     padding-left: 4px;
+    appearance:menulist;
+    -moz-appearance:menulist; 
+    -webkit-appearance:menulist;
 }
 
 #titRegistro{
@@ -288,6 +291,10 @@ body .button{
 
 .rta{
     display: inline;
+}
+
+#btnBuscar{
+    text-align: center;
 }
 
 @media (min-width: 760px){

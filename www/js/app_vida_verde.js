@@ -15,7 +15,7 @@ ambienteApp.config(function($sceDelegateProvider) {
 ambienteApp.controller( 'VideosCtrl', ['$scope', '$http', '$location',
     function( $scope, $http, $location ) {  
         getVideos(function( videos ){
-            console.log(videos)
+            //console.log(videos)
             //for (var i = 0; i > videos.length; i++) {
             //    console.log("algo " + videos[i].url);
             //    videos[i].url =  videos[i].url.replace("watch?v=","embed/"); 
@@ -49,8 +49,8 @@ ambienteApp.config( ['$routeProvider', '$locationProvider',
 
 function getVideos( success ){
     $.getJSON(
-        'data/vidaverde.json',
+        'http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/vidaverde?$format=json',
         function(data, textStatus, jqXHR){
-            success(data.videos)
+            success(data.d)
         })
 }

@@ -7,20 +7,20 @@
     <div class="decoration"></div>
 
     <div class="content">
-            <div class="static-notification-blue" ng-click="calificar(pregunta.respuestas[0])">
-                <p class="center-text">{{ pregunta.respuestas[0].rta }}</p>
+            <div class="static-notification-blue" ng-click="calificar(1)">
+                <p class="center-text">{{ pregunta.rta1 }}</p>
             </div>
 
-            <div class="static-notification-blue" ng-click="calificar(pregunta.respuestas[1])">
-                <p class="center-text">{{ pregunta.respuestas[1].rta }}</p>
+            <div class="static-notification-blue" ng-click="calificar(2)">
+                <p class="center-text">{{ pregunta.rta2 }}</p>
             </div>
 
-            <div class="static-notification-blue" ng-click="calificar(pregunta.respuestas[2])">
-                <p class="center-text">{{ pregunta.respuestas[2].rta }}</p>
+            <div class="static-notification-blue" ng-click="calificar(3)">
+                <p class="center-text">{{ pregunta.rta3 }}</p>
             </div>
 
-            <div class="static-notification-blue" ng-click="calificar(pregunta.respuestas[3])">
-                <p class="center-text">{{ pregunta.respuestas[3].rta }}</p>
+            <div class="static-notification-blue" ng-click="calificar(4)">
+                <p class="center-text">{{ pregunta.rta4 }}</p>
             </div>
 
     </div>
@@ -31,9 +31,9 @@
 
     <div class="content">
          <img class="imgSabias" src="img/sabias4.jpg" alt="">
-         <img class="imgRta" src="img/ok.png" alt="" ng-show="respuesta.valoracion == 'true'">
-         <img class="imgRta" src="img/error.png" alt="" ng-show="respuesta.valoracion != 'true'">
-        <h1 class="feed-respuesta rta">{{respuesta.feed}}</h1>
+         <img class="imgRta" src="img/ok.png" alt="" ng-show="correcto">
+         <img class="imgRta" src="img/error.png" alt="" ng-show="correcto == false">
+        <h1 class="feed-respuesta rta"  >{{feed}}</h1>
     </div>
     <div class="decoration"></div>
 

@@ -159,6 +159,22 @@ function getLugares(categoria, success ){
         })
 }
 
+
+function puntosCiudadCategoria(ciudad, categoria, success ){
+    $.getJSON(
+        'data/puntosposconsumobarranquilla.json',
+        function(data, textStatus, jqXHR){
+            var lugares = []
+            for (var i = 0; i < data.d.length; i++) {
+                var id_cat = data.d[i].categoria.replace(/ /g, '_').toLowerCase()
+                if(id_cat == categoria){
+                    lugares.push(data.d[i])
+                }
+            }
+            success(lugares)
+        })
+}
+
 //////////////// Otros métodos
 
 //Cómo hacer esto con Angular??

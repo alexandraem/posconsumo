@@ -73,12 +73,12 @@ ambienteApp.config( ['$routeProvider', '$locationProvider',
 
 function getPuntajes( categoria, success ){
     $.getJSON(
-        'data/cuanto_ayudo.json',
+        "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/cuantoayudo?$filter=categoria%20EQ%20'"+categoria+"'&$format=json",
         function(data, textStatus, jqXHR){
             var puntajes_final = []
-            for (var i = 0; i < data.puntajes.length; i++) {
-                if(data.puntajes[i].categoria == categoria){
-                    puntajes_final.push(data.puntajes[i])
+            for (var i = 0; i < data.d.length; i++) {
+                if(data.d[i].categoria == categoria){
+                    puntajes_final.push(data.d[i])
                 }
             }
             success(puntajes_final)
