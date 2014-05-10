@@ -41,6 +41,7 @@ ambienteApp.controller( 'LugaresCategoriasCtrl', ['$scope', '$http', '$location'
 ambienteApp.controller( 'LugaresCtrl', ['$scope', '$http', '$location', '$routeParams',
     function( $scope, $http, $location, $routeParams ) {
 
+//Ojo esto va ligado despueś al botón buscar
         getLugares( $routeParams.categoria, function( lugares ){
             $scope.lugares = lugares
 
@@ -53,6 +54,9 @@ ambienteApp.controller( 'LugaresCtrl', ['$scope', '$http', '$location', '$routeP
 
             $scope.$apply()
         })
+
+
+       
 
         $scope.mostrar = function(lugar){
             $location.path("/lugar-" + lugar.RowKey)
@@ -67,6 +71,8 @@ ambienteApp.controller( 'LugaresDetalleCtrl', ['$scope', '$http', '$location', '
             $scope.lugarSel.google_mapa = 'https://www.google.com/maps/embed/v1/search?key=AIzaSyCD8ba07qJ-nqhvsLOIzD78XnTs223zkWQ&q=' + lugar.direccion + ', ' + lugar.municipio
             $scope.$apply()
         })
+
+
     }
 ])
 
@@ -143,7 +149,10 @@ function getLugaresCategorias( success ){
         })
 }
 
+//Aca lo primero es llenar los select para los filtros
+//Luego llamar esta parte donde se muestra el listado de puntos
 
+//Es decir esta función debería ser la acción del botón buscar
 function getLugares(categoria, success ){
     $.getJSON(
         'data/puntosposconsumobarranquilla.json',
@@ -158,6 +167,44 @@ function getLugares(categoria, success ){
             success(lugares)
         })
 }
+
+function getDeptos(success ){
+    $("#combo_departamento").find('option').remove().end().attr("selected", "selected");
+    $.getJSON(
+        'http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/lugarespuntos01?$format=json',
+        function(data, textStatus, jqXHR){
+            var dptos = [];
+            var texto_combo = "";
+            for (var i = 0; i < data.d.length; i++) {
+                if(dptos.indexOf(data.d[i].codigodepartamento) != -1){
+                    texto_combo += "<option value='" + data.d[i].codigodepartamento + "'>" + data.d[i].nombredepartamento + "</option>";
+                    lugares.push(data.d[i].codigodepartamento)
+                }
+            }
+
+            $("#combo_departamento").append(texto_combo);
+            $("#combo_departamento").selectmenu('refresh');
+            getMnpios();
+        })
+}
+
+function getMnpios(){
+    $("#combo_municipio").find('option').remove().end().selectmenu('refresh');
+    var CodDpto = $("#combo_departamento").val();
+    $.getJSON(
+        "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/lugarespuntos01?$filter=codigodepartamento%20EQ%20'"+CodDpto+"'&$format=json",
+        function(data, textStatus, jqXHR){
+            var contenido_combo = "";
+            for (var i = 0; i < data.d.length; i++) {
+                contenido_combo += "<option value='" + data.d[i].codigomunicipio + "'>" + data.d[i].nombremunicipio + "</option>";
+                
+            }
+
+            $("#combo_municipio").append(contenido_combo);
+            $("#combo_municipio").selectmenu('refresh');
+        })
+}
+
 
 
 function puntosCiudadCategoria(ciudad, categoria, success ){
@@ -177,10 +224,6 @@ function puntosCiudadCategoria(ciudad, categoria, success ){
 
 //////////////// Otros métodos
 
-//Cómo hacer esto con Angular??
-//$(document).ready(function () {
-  //     CargarCiudades();
-//}
 
 function CargarCiudades(){
     var Depto = document.getElementById('combo_departamento').value;

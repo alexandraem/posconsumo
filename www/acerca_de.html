@@ -53,19 +53,109 @@
 
     <div class="all-elements">
 
-        <div class="page-content indexContent">
+        <div id="sidebar" class="page-sidebar">
+            <div class="page-sidebar-scroll">
 
-             <div class="content">
-                <h4 class="center-text titAcerca">Información de la aplicación</h4>
+                <div class="sidebar-controls">
+                    <a href="#" class="sidebar-close"></a>
+                    <a target="_blank" href="https://es-la.facebook.com/pages/Ministerio-de-Ambiente-y-Desarrollo-Sostenible/118961431546715" class="sidebar-face"></a>
+                    <a target="blank" href="https://twitter.com/MinAmbienteCo" class="sidebar-twit"></a>
+                </div>
+
+                <div class="sidebar-header">
+                    <a href="actualizar.html"><h4 class="center-text" id="nombreUsuario"></h4></a>
+                    <em class="center-text" id="puntosUsuario"></em>
+                </div>
+
+                <div class="navigation-items">
+                    <div class="sidebar-decoration"></div>
+
+                    <div class="nav-item">
+                        <a href="index.html" class="home-nav">Bienvenido</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-breadcrumb">
+                    <div class="sidebar-decoration"></div>
+                    <p>Navegación</p>
+                    <div class="sidebar-decoration"></div>
+                </div>
+
+                <div class="navigation-items">
+                    <div class="nav-item">
+                       <a href="_campanias.html" class="campanias-nav">Campañas</a>
+                    </div>
+
+                    <div class="sidebar-decoration"></div>
+
+                    <div class="nav-item">
+                        <a href="_donde.html" class="donde-nav" >¿Dónde reciclar?</a>
+                    </div>
+
+                    <div class="sidebar-decoration"></div>
+
+
+                    <div class="nav-item">
+                        <a href="_ganar.html" class="ganar-nav">¡Ganar puntos!</a>
+                    </div>
+
+                    <div class="sidebar-decoration"></div>
+
+                    <div class="nav-item">
+                        <a href="_cuanto.html" class="ayudo-nav">¿Cuánto ayudo?</a>
+                    </div>
+
+                    <div class="sidebar-decoration"></div>
+
+                    <div class="nav-item">
+                        <a href="_vida_verde.html" class="vida-nav">Vida verde</a>
+                    </div>
+
+                    <div class="sidebar-decoration"></div>
+
+                    <div class="nav-item">
+                        <a href="acerca_de.html" class="info-nav">Acerca de</a>
+                    </div>
+
+
+                    <div class="sidebar-decoration"></div>
+
+
+                </div>
             </div>
+        </div>
 
-            <div class="content inicio" id="logoRegistro">
+
+        <div id="content" class="page-content indexContent">
+		
+				
+           <div class="content-controls solid-color fixed-header">
+                <a href="#" class="deploy-sidebar"></a>
+                <em class="content-title">ACERCA DE</em>
+            </div>
+            <div class="fixed-header-clear"></div>
+
+            <!-- <div class="content">
+                <h4 class="center-text titAcerca">Información de la aplicación</h4>
+            </div>-->
+            <div class="content inicio">
                 <h1 class="center-text">
                     <img class="logo" src="img/leaf2.png" alt="">Red Posconsumo
                 </h1>
             </div>
             <div class="content">
-                <h4 class="center-text subTitRegistro" id="subTitHome">Versión 1.0</h4>
+                <h4 class="center-text subTitRegistro" id="subTitVersion">Versión 1.0</h4>
+            </div>
+
+
+            <div class="content" id="p-nombres">
+                <h3 class="center-text subTitRegistro" id="TitDesarrollado">Desarrollado por</h3>
+                <p class="p-acerca">Alexandra Espinosa Mejía</p>
+                <p class="p-acerca">Cristian Samir Jimenez Beltrán</p>
+                <h3 class="center-text subTitRegistro" id="subTitApoyo">Con el apoyo de</h3>
+                <div class="logosAcerca">
+                    <img class="logoEmpresa" src="img/logo-anglus.png" alt="">
+                </div>
             </div>
 
 
@@ -84,14 +174,27 @@
 
             <div class="content TextoCentro">
                 <p>Tenga en cuenta que el uso de esta aplicación requiere acceso a internet y puede consumir recursos de su plan de datos.</p>
+                <!--<p>Desarrollado bajo la estrategia de gobierno en línea del ministerio de tecnologías de la información y comunicaciones para el ministerios que ambiente y desarrollo sostenible</p>-->
                 <p>Todos los derechos reservados - 2014.</p>
-            </div>
+            </div>            
 
         </div>
-    <div>
 
 	<script type="text/javascript" >
 		app.initialize()
+        $( document ).ready(function() {
+           var nombre = localStorage.getItem("NombreRegistro");
+           $("#nombreUsuario").text(nombre);
+
+           if(localStorage.getItem("PuntosRegistro") != null && localStorage.getItem("PuntosRegistro") != ""){
+                var puntos = localStorage.getItem("PuntosRegistro");
+                $("#puntosUsuario").text(puntos +" Puntos");
+           }else{
+                $("#puntosUsuario").text("0 Puntos");
+           }
+            configurar_db();
+        });
+        
 	</script>
 </body>
 </html>

@@ -44,7 +44,6 @@ ambienteApp.controller( 'PreguntasCtrl', ['$scope', '$http', '$location',
         })
 
         $scope.calificar = function( respuestaSeleccionada ){
-           // $scope.respuesta = respuestaSeleccionada
 
             if($scope.pregunta.respuesta == respuestaSeleccionada){
                 $scope.puntos += 10
