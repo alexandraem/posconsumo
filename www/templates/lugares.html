@@ -2,27 +2,18 @@
     <button class="button button-green btnRgis" onclick="Volver()">Volver</button>
 </div>
 <div class="content-section">
-                <h1 class="left-text catDondeTit">{{categoria.nombre|uppercase}}</h1>
+                <p>
+                    {{state}}
+                </p>                
                 <label class="lblCombosFiltro">Seleccione un departamento</label>
-                <select id="combo_departamento" name="combo_departamento" class="CombosFiltro" onchange="CargarCiudades()">
-                    <option ng-repeat="depar in departs" value="{{depar.codigodepartamento}}">{{depar.nombredepartamento}}</option>
-                   <!-- <option value="ATLÁNTICO">Atlántico</option>
-                    <option value="BOLÍVAR">Bolívar</option>
-                    <option value="CALDAS">Caldas</option>
-                    <option value="CUNDINAMARCA">Cundinamarca</option>
-                    <option value="MAGDALENA">Magdalena</option>
-                    <option value="VALLE DEL CAUCA">Valle del Cauca</option>-->
+                <select id="combo_departamento" name="combo_departamento" class="CombosFiltro" ng-change="cargarMunicipios()" ng-init="deptoSel = departs[1].nombre" ng-model="deptoSel" ng-options="depar.codigo as depar.nombre for depar in departs">
                 </select>
+
+
                 <label class="lblCombosFiltro">Seleccione un municipio</label>
-                <select id="combo_municipio" name="combo_municipio" class="CombosFiltro" onchange="CargarInfo()">
-                   <!-- <option value="ANTIOQUIA">Medellín</option>
-                    <option value="MAGDALENA">Santa Marta</option>
-                    <option value="CALDAS">Manizales</option>
-                    <option value="ATLÁNTICO">Barranquilla</option>
-                    <option value="CUNDINAMARCA">Bogotá</option>
-                    <option value="BOLÍVAR">Cartagena</option>
-                    <option value="VALLE DEL CAUCA">Cali</option>-->
+                <select id="combo_municipio" name="combo_municipio" class="CombosFiltro" ng-model="munSel" ng-options="mun.codigomunicipio as mun.nombremunicipio for mun in municipios">
                 </select>
+                
                 <div id="btnBuscar">
                     <button class="button button-green" onclick="puntosCiudadCategoria()">Buscar</button>
                 </div>

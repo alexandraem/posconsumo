@@ -55,20 +55,51 @@ ambienteApp.controller( 'LugaresCtrl', ['$scope', '$http', '$location', '$routeP
             // $scope.$apply()
         // })
 
+        $scope.state = "Cargando departamentos..."
         getDeptos(function( departamentos ){
             $scope.departs = departamentos
+            $scope.state = ""
+            $scope.$apply()
 
-            console.log("llegó aquí "+ $scope.departs.length );
-             $scope.$apply()
+            /*if($scope.departs.length>0){
+                $scope.deptoSel = $scope.departs[0]
+            }
+
+            $scope.$apply()*/
+            
+            $scope.cargarMunicipios();
          })
 
 
-       
+        $scope.cargarMunicipios = function(){
+            //deptoSel se crea en el select en el html
+            $scope.state = "Cargando municipios..." 
+            var CodDpto = $scope.deptoSel;
+            $.getJSON(
+                "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/lugarespuntos01?$filter=codigodepartamento%20EQ%20'"+CodDpto+"'&$format=json",
+                function(data, textStatus, jqXHR){
+                    var mnpios = [];
+                    for (var i = 0; i < data.d.length; i++) {
+                        mnpios.push(data.d[i])
+                    }
+                    $scope.municipios = mnpios;
+                    if($scope.municipios.length>0){
+                        $scope.munSel = $scope.municipios[0]
+                    }
+                    $scope.state = ""
+                    $scope.$digest()
+                })
+        }
 
         $scope.mostrar = function(lugar){
             $location.path("/lugar-" + lugar.RowKey)
         }
+
+        
     }
+
+
+
 ])
 
 ambienteApp.controller( 'LugaresDetalleCtrl', ['$scope', '$http', '$location', '$routeParams',
@@ -176,43 +207,51 @@ function getLugares(categoria, success ){
 }
 
 function getDeptos(success){
-    $("#combo_departamento").find('option').remove().end().attr("selected", "selected");
     $.getJSON(
         'http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/lugarespuntos01?$format=json',
         function(data, textStatus, jqXHR){
             var dptos = [];
-           // var texto_combo = "";
+            dptos.myIndexOf = function(codigo){
+                for (var i = 0; i < dptos.length; i++) {
+                      if (codigo == dptos[i].codigo) {
+                            return i;
+                      }
+                }
+                return -1;
+            }
             for (var i = 0; i < data.d.length; i++) {
-                if(dptos.indexOf(data.d[i].codigodepartamento) == -1){
-                    //texto_combo += "<option value='" + data.d[i].codigodepartamento + "'>" + data.d[i].nombredepartamento + "</option>";
+                if(dptos.myIndexOf(data.d[i].codigodepartamento) == -1){
+                    var object = new Object();
+                    object.codigo = data.d[i].codigodepartamento;
+                    object.nombre = data.d[i].nombredepartamento;
 
-                    dptos.push(data.d[i])
+                    dptos.push(object)
                 }
             }
 
-           // $("#combo_departamento").append(texto_combo);
-           // $("#combo_departamento").selectmenu('refresh');
-            //getMnpios();
              success(dptos)
         })
 }
 
-function getMnpios(){
+/*function getMnpios(success){
+    
     $("#combo_municipio").find('option').remove().end().attr("selected", "selected");
     var CodDpto = $("#combo_departamento").val();
     $.getJSON(
         "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/lugarespuntos01?$filter=codigodepartamento%20EQ%20'"+CodDpto+"'&$format=json",
         function(data, textStatus, jqXHR){
-            var contenido_combo = "";
+            //var contenido_combo = "";
+            var mnpios = [];
             for (var i = 0; i < data.d.length; i++) {
-                contenido_combo += "<option value='" + data.d[i].codigomunicipio + "'>" + data.d[i].nombremunicipio + "</option>";
-                
+              ///  contenido_combo += "<option value='" + data.d[i].codigomunicipio + "'>" + data.d[i].nombremunicipio + "</option>";
+                mnpios.push(data.d[i])
             }
 
 //            $("#combo_municipio").append(contenido_combo);
  //           $("#combo_municipio").selectmenu('refresh');
+            success(mnpios)
         })
-}
+}*/
 
 
 
