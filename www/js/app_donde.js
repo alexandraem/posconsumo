@@ -42,18 +42,25 @@ ambienteApp.controller( 'LugaresCtrl', ['$scope', '$http', '$location', '$routeP
     function( $scope, $http, $location, $routeParams ) {
 
 //Ojo esto va ligado despueś al botón buscar
-        getLugares( $routeParams.categoria, function( lugares ){
-            $scope.lugares = lugares
+        // getLugares( $routeParams.categoria, function( lugares ){
+            // $scope.lugares = lugares
+// 
+            // for (var i = 0; i < _categorias.length; i++) {
+                // if(_categorias[i].id == $routeParams.categoria){
+                    // $scope.categoria = _categorias[i]
+                    // break;
+                // }
+            // }
+// 
+            // $scope.$apply()
+        // })
 
-            for (var i = 0; i < _categorias.length; i++) {
-                if(_categorias[i].id == $routeParams.categoria){
-                    $scope.categoria = _categorias[i]
-                    break;
-                }
-            }
+        getDeptos(function( departamentos ){
+            $scope.departs = departamentos
 
-            $scope.$apply()
-        })
+            console.log("llegó aquí "+ $scope.departs.length );
+             $scope.$apply()
+         })
 
 
        
@@ -168,28 +175,30 @@ function getLugares(categoria, success ){
         })
 }
 
-function getDeptos(success ){
+function getDeptos(success){
     $("#combo_departamento").find('option').remove().end().attr("selected", "selected");
     $.getJSON(
         'http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/lugarespuntos01?$format=json',
         function(data, textStatus, jqXHR){
             var dptos = [];
-            var texto_combo = "";
+           // var texto_combo = "";
             for (var i = 0; i < data.d.length; i++) {
-                if(dptos.indexOf(data.d[i].codigodepartamento) != -1){
-                    texto_combo += "<option value='" + data.d[i].codigodepartamento + "'>" + data.d[i].nombredepartamento + "</option>";
-                    lugares.push(data.d[i].codigodepartamento)
+                if(dptos.indexOf(data.d[i].codigodepartamento) == -1){
+                    //texto_combo += "<option value='" + data.d[i].codigodepartamento + "'>" + data.d[i].nombredepartamento + "</option>";
+
+                    dptos.push(data.d[i])
                 }
             }
 
-            $("#combo_departamento").append(texto_combo);
-            $("#combo_departamento").selectmenu('refresh');
-            getMnpios();
+           // $("#combo_departamento").append(texto_combo);
+           // $("#combo_departamento").selectmenu('refresh');
+            //getMnpios();
+             success(dptos)
         })
 }
 
 function getMnpios(){
-    $("#combo_municipio").find('option').remove().end().selectmenu('refresh');
+    $("#combo_municipio").find('option').remove().end().attr("selected", "selected");
     var CodDpto = $("#combo_departamento").val();
     $.getJSON(
         "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/lugarespuntos01?$filter=codigodepartamento%20EQ%20'"+CodDpto+"'&$format=json",
@@ -200,8 +209,8 @@ function getMnpios(){
                 
             }
 
-            $("#combo_municipio").append(contenido_combo);
-            $("#combo_municipio").selectmenu('refresh');
+//            $("#combo_municipio").append(contenido_combo);
+ //           $("#combo_municipio").selectmenu('refresh');
         })
 }
 
