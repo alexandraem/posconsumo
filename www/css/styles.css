@@ -354,6 +354,16 @@ body .button{
     margin-bottom: 20px;
 }
 
+#cargando{
+    text-align: center;
+    display: inline;
+}
+
+.msj{
+    font-size: 14px !important;
+    text-align: center;
+}
+
 @media (min-width: 760px){
     .menuPrincipal>.one-half-responsive{
         width: 70%;

@@ -41,38 +41,20 @@ ambienteApp.controller( 'LugaresCategoriasCtrl', ['$scope', '$http', '$location'
 ambienteApp.controller( 'LugaresCtrl', ['$scope', '$http', '$location', '$routeParams',
     function( $scope, $http, $location, $routeParams ) {
 
-//Ojo esto va ligado despueś al botón buscar
-        // getLugares( $routeParams.categoria, function( lugares ){
-            // $scope.lugares = lugares
-// 
-            // for (var i = 0; i < _categorias.length; i++) {
-                // if(_categorias[i].id == $routeParams.categoria){
-                    // $scope.categoria = _categorias[i]
-                    // break;
-                // }
-            // }
-// 
-            // $scope.$apply()
-        // })
-
         $scope.state = "Cargando departamentos..."
         getDeptos(function( departamentos ){
             $scope.departs = departamentos
+            if($scope.departs.length > 0){
+                //deptoSel se crea en el select en el html
+                $scope.deptoSel = $scope.departs[0].codigo
+            }
             $scope.state = ""
             $scope.$apply()
-
-            /*if($scope.departs.length>0){
-                $scope.deptoSel = $scope.departs[0]
-            }
-
-            $scope.$apply()*/
             
             $scope.cargarMunicipios();
          })
 
-
         $scope.cargarMunicipios = function(){
-            //deptoSel se crea en el select en el html
             $scope.state = "Cargando municipios..." 
             var CodDpto = $scope.deptoSel;
             $.getJSON(
@@ -84,8 +66,30 @@ ambienteApp.controller( 'LugaresCtrl', ['$scope', '$http', '$location', '$routeP
                     }
                     $scope.municipios = mnpios;
                     if($scope.municipios.length>0){
-                        $scope.munSel = $scope.municipios[0]
+                        $scope.munSel = $scope.municipios[0].codigomunicipio
                     }
+                    $scope.state = ""
+                    $scope.$digest()
+                })
+        }
+
+        $scope.listadoLugares = function(){
+            $scope.state = "Cargando puntos de recolección..."
+            var CodDpto = $scope.deptoSel;
+            var CodMnpio = $scope.munSel;
+            console.log("categoria =" + $routeParams.categoria)
+            $.getJSON(
+                "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/puntosposconsumo?$filter=codigodepto%20EQ%20'"+CodDpto+"'%20and%20codigomunicipio%20EQ%20'"+CodMnpio+"'%20and%20categoria%20EQ%20'"+$routeParams.categoria+"'&$format=json",
+                function(data, textStatus, jqXHR){
+                    console.log(data)
+                    var lugares = []
+                    for (var i = 0; i < data.d.length; i++) {
+                      //  var id_cat = data.d[i].categoria.replace(/ /g, '_').toLowerCase()
+                       // if(id_cat == categoria){
+                            lugares.push(data.d[i])
+                        //}
+                    }
+                    $scope.puntos = lugares; 
                     $scope.state = ""
                     $scope.$digest()
                 })
@@ -94,12 +98,7 @@ ambienteApp.controller( 'LugaresCtrl', ['$scope', '$http', '$location', '$routeP
         $scope.mostrar = function(lugar){
             $location.path("/lugar-" + lugar.RowKey)
         }
-
-        
     }
-
-
-
 ])
 
 ambienteApp.controller( 'LugaresDetalleCtrl', ['$scope', '$http', '$location', '$routeParams',
