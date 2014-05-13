@@ -364,6 +364,9 @@ body .button{
     text-align: center;
 }
 
+
+.angular-google-map-container { height: 400px; }
+
 @media (min-width: 760px){
     .menuPrincipal>.one-half-responsive{
         width: 70%;
