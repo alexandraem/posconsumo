@@ -28,12 +28,8 @@ ambienteApp.controller( 'CampaniaDetalleCtrl', ['$scope', '$http', '$location', 
             $scope.$apply()
         })
 
-        $scope.CompartirFB = function(url){
-            openLinkInBrowser('https://www.facebook.com/sharer/sharer.php?u='+escape(url)+'');
-        }
-
-        $scope.CompartirTW = function(url){
-            openLinkInBrowser('https://twitter.com/intent/tweet?text=Visita%20'+escape(url)+'');
+        $scope.compartir = function(){
+            window.plugins.socialsharing.share('He visto la campaña '+ $scope.campain.nombre +' Visita ', null, null,  $scope.campain.informacion )
         }
     }
 ])

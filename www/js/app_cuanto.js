@@ -49,7 +49,21 @@ ambienteApp.controller( 'CuantoCategoriaCtrl', ['$scope', '$http', '$location', 
             $scope.$apply();
         })
 
-        $scope.cantidad = 0
+        $scope.calcularValor = function(){
+          var cantidadReal = $('#cantTxt').val();
+          if (cantidadReal == cantidadReal.replace(/[^0-9\.]/g, '')) {
+              if (cantidadReal == "") {
+                  $scope.cantidad  = 0;
+              }else if(!isNaN(cantidadReal) && parseInt(cantidadReal)>0){
+                  $scope.cantidad = parseInt(cantidadReal);
+              }else{
+                  $scope.cantidad = 0;
+              } 
+          } else {
+             $('#cantTxt').val(cantidadReal.replace(/[^0-9\.]/g, ''));
+          }
+        }
+       
     }
 ])
 

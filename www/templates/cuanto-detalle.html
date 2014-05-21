@@ -15,13 +15,15 @@
     <div class="decoration"></div>
 
     <div class="content" id="contador">
+        <div style="padding:10px;" ng-click="cantidad = cantidad+1">
+            <img src="libs/theme/code/images/lists/up_48.png" >
+        </div>
 
-        <img src="libs/theme/code/images/lists/up_48.png" ng-click="cantidad = cantidad+1">
+        <div class="cantidad"><input type="text" id="cantTxt" value="{{cantidad}}"  ng-keyup="calcularValor()" ng-init="cantidad=0" maxlength="5"></div>
 
-        <div class="cantidad">{{cantidad}}</div>
-
-        <img src="libs/theme/code/images/lists/down_48.png" ng-click="cantidad = cantidad-1" ng-show="cantidad>0">
-
+        <div style="padding:10px;" ng-click="cantidad = cantidad-1" ng-show="cantidad>0">
+            <img src="libs/theme/code/images/lists/down_48.png" >
+        </div>
     </div>
 
     <div>

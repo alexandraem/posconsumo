@@ -87,6 +87,9 @@ ambienteApp.controller( 'PreguntasCtrl', ['$scope', '$http', '$location',
             }
         }
 
+        $scope.compartir = function(){
+            window.plugins.socialsharing.share('He ganado '+$scope.puntos+' puntos en Red Posconsumo. ¿Puedes superarme?', null, null, 'http://www.minambiente.gov.co/')
+        }
     }
 ])
 

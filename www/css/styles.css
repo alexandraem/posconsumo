@@ -73,7 +73,7 @@ body .button{
     text-align: center;
 }
 #contador img{
-    width: 25px;
+    width: 35px;
     display: inline-block;
     margin: 0 auto;
 }
@@ -362,6 +362,12 @@ body .button{
 .msj{
     font-size: 14px !important;
     text-align: center;
+}
+
+#cantTxt{
+    width: 90px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 

@@ -13,11 +13,13 @@
                 </select>
                 
                 <div id="btnBuscar">
-                    <button class="button button-green" ng-click="listadoLugares()">Buscar</button>
+                    <button class="button button-green" ng-click="listadoLugares()">Ver Lista</button>
+                    <button class="button button-green" ng-click="listadoLugares()">Ver mapa</button>
                 </div>
 </div>
 
-    <div ng-repeat="lugar in puntos" ng-click="mostrar( lugar )" class="content" >
+   <!-- <div ng-repeat="lugar in puntos" ng-click="mostrar( lugar )" class="content" >-->
+    <div ng-repeat="lugar in puntos" class="content" >
         <div class="lugar">
             <h4>{{lugar.vocero}}</h4>
             <p>{{lugar.direccion}}</p>

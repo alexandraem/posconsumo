@@ -54,8 +54,16 @@
             </p>
             <h4 class="center-text">Compártelo con tus amigos</h4>
             <p class="center-text">
-                <button class="button button-blue" onclick="openLinkInBrowser('https://www.facebook.com/sharer/sharer.php?u=He%20obtenido%2010%20puntos%20en%20LeafApp');">Facebook</button>
-                <button class="button button-blue" onclick="openLinkInBrowser('https://twitter.com/intent/tweet?text=He%20obtenido%2010%20puntos%20en%20LeafApp');" >Twitter</button>
+               <!-- <button class="button button-blue" onclick="openLinkInBrowser('https://www.facebook.com/sharer/sharer.php?u=He%20obtenido%2010%20puntos%20en%20LeafApp');">Facebook</button>
+                <button class="button button-blue" onclick="openLinkInBrowser('https://twitter.com/intent/tweet?text=He%20obtenido%2010%20puntos%20en%20Red%20Posconsumo%20¿Puedes%20superarme?');" >Twitter</button>
+            
+                <button class="button button-blue" ng-click="window.plugins.socialsharing.share('He ganado {{puntos}} puntos en Red Posconsumo. ¿Puedes superarme?', null, null, 'http://www.minambiente.gov.co/')">Compartir</button>
+                <button onclick="window.plugins.socialsharing.shareViaFacebook('Message via Facebook', null, null, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">fb 1</button>
+                <button onclick="window.plugins.socialsharing.shareViaFacebook('Message via Facebook 2'+{{puntos}}, null, null, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">fb 2</button>
+                <button onclick="window.plugins.socialsharing.shareViaFacebook('Message via Facebook 3 {{puntos}}', null, null, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">fb 3</button>
+                <button onclick="window.plugins.socialsharing.shareViaTwitter('Message via Twitter {{puntos}} ')">tw 1</button>
+                <button onclick="window.plugins.socialsharing.shareViaTwitter('Message via Twitter 2')">tw 2</button>-->
+                <button class="button button-blue" ng-click="compartir()">Compartir</button>
             </p>
         </div>
     </div>
