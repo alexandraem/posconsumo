@@ -91,53 +91,16 @@ ambienteApp.controller( 'LugaresCtrl', ['$scope', '$http', '$location', '$routeP
                     $scope.$digest()
                 })
         }
+       
+        $scope.verMapa = function() {
+            sessionStorage.setItem("dpSelect", $scope.deptoSel);
+            sessionStorage.setItem("mnSelect", $scope.munSel);
+            sessionStorage.setItem("ctSelect", $routeParams.categoria);
 
-        $scope.mostrar = function(lugar){
-            console.log(lugar);
-            $location.path("/lugar-" + lugar.nid)
+            window.location.href = "mapa_puntos.html";
         }
     }
 ])
-
-ambienteApp.controller( 'LugaresDetalleCtrl', ['$scope', '$http', '$location', '$routeParams',
-    function( $scope, $http, $location, $routeParams ) {
-    //    google.maps.visualRefresh = true;
-//
-    //    $scope.mapa = {
-    //        center: {
-    //            latitude: 37.0000,
-    //            longitude: -122.0000
-    //        },
-    //        ref: true,
-    //        control: {},
-    //        zoom: 2
-    //    };
-
-
-       // $scope.refreshMap = function () {
-       //     $scope.mapa.control.refresh({latitude: 32.779680, longitude: -79.935493});
-       //     console.log("hola")
-       //     $scope.mapa.control.getGMap().setZoom(11);
-       //     return;
-       // };
-
-
-
-        getLugar( $routeParams.lugarId , function( lugar ){
-            $scope.lugarSel = lugar[0]
-
-            //$scope.mapa.center.latitude = $scope.lugarSel.latitud
-            //$scope.mapa.center.longitude = $scope.lugarSel.longitud
-            //$scope.refreshMap();
-            $scope.$digest()
-
-
-        })
-
-
-    }
-])
-
 
 ambienteApp.config( ['$routeProvider', '$locationProvider',
   function( $routeProvider, $locationProvider ) {
@@ -150,10 +113,6 @@ ambienteApp.config( ['$routeProvider', '$locationProvider',
         templateUrl: 'templates/lugares.html',
         controller: 'LugaresCtrl'
       }).
-      when('/lugar-:lugarId', {
-        templateUrl: 'templates/lugar.html',
-        controller: 'LugaresDetalleCtrl'
-      }).
       otherwise({
         redirectTo: '/categorias'
       });
@@ -162,58 +121,6 @@ ambienteApp.config( ['$routeProvider', '$locationProvider',
 
 
 ///////////////////////////////// CONSULTAS AL SET DE DATOS
-
-
-function getLugar( id , success){
-    $.getJSON(
-        "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/puntosposconsumo?$filter=nid%20EQ%20'"+id+"'&$format=json",
-        function(data, textStatus, jqXHR){
-            console.log(data);
-            // var lugar = data.d
-            //var encontrado = false
-            // for (var i = 0; i < lugares.length; i++) {
-                if ( data.d.length > 0 ){
-                    success( data.d )
-                   // encontrado = true
-                   // break;
-                }else{
-                    success( {} )
-                    console.log("no encontrado")
-                }
-            //};
-            //if(!encontrado){
-            //    success( {} )
-            //    console.log("no encontrado")
-            // }
-        })
-}
-
-
-//function getLugaresCategorias( success ){
-//    $.getJSON(
-//        'data/puntosposconsumobarranquilla.json',
-//        function(data, textStatus, jqXHR){
-//            var categorias = []
-//            for (var i = 0; i < data.d.length; i++) {
-//                var nueva = {
-//                    nombre: data.d[i].categoria,
-//                    id: data.d[i].categoria.replace(/ /g, '_').toLowerCase()
-//                }
-//                var existe = false;
-//                for (var j = 0; j < categorias.length; j++) {
-//                    if(categorias[j].id == nueva.id){
-//                        existe = true;
-//                        break;
-//                    }
-//                }
-//                if(!existe){
-//                    categorias.push(nueva)
-//                }
-//            }
-//
-//            success(categorias)
-//        })
-//}
 
 function getDeptos(success){
     $.getJSON(
@@ -242,22 +149,7 @@ function getDeptos(success){
         })
 }
 
-//function puntosCiudadCategoria(ciudad, categoria, success ){
-//    $.getJSON(
-//        'data/puntosposconsumobarranquilla.json',
-//        function(data, textStatus, jqXHR){
-//            var lugares = []
-//            for (var i = 0; i < data.d.length; i++) {
-//                var id_cat = data.d[i].categoria.replace(/ /g, '_').toLowerCase()
-//                if(id_cat == categoria){
-//                    lugares.push(data.d[i])
-//                }
-//            }
-//            success(lugares)
-//        })
-//}
-
-
 function Volver() {
     window.location.href = "_donde.html#/categorias";
 }
+

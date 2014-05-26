@@ -185,7 +185,7 @@ body .button{
 .imgLogos{
     display: inline-block;
     height: 65%;
-    margin-right: 2%;
+    margin-right: 4%;
 }
 
 .divImgLogos{
@@ -370,8 +370,9 @@ body .button{
     margin: 0 auto;
 }
 
-
-.angular-google-map-container { height: 400px; }
+.h4Cat{
+    font-size: 11px;
+}
 
 @media (min-width: 760px){
     .menuPrincipal>.one-half-responsive{
