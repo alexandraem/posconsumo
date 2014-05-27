@@ -18,6 +18,7 @@ margin: 0;
     font-size:  14px !important;
     border-top: 1px solid #ccc;
     padding-top: 10px;
+	text-align: center;
 }
 
 .h2Mapa {
@@ -67,4 +68,16 @@ margin: 0;
     background-color: #FFF;
     padding: 10px;
     z-index: 999999;
+}
+
+
+.btnLlegar {
+	font-size: 14px !important;
+	color: #fff;
+	margin-top: 10px;
+	padding: 4px 7px;
+}
+
+.button-green {
+background-color: #27ae60;
 }
