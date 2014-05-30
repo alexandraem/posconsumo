@@ -91,8 +91,8 @@ function getCampanias( success ){
         })
 }
 
-function CompartirFB( urlCompartir ){
-    var url = urlCompartir.replace('-','&');
-    console.log('https://www.facebook.com/sharer/sharer.php?u='+url+'');
-    openLinkInBrowser('https://www.facebook.com/sharer/sharer.php?u='+url+'');
-}
+//function CompartirFB( urlCompartir ){
+   // var url = urlCompartir.replace('-','&');
+    //console.log('https://www.facebook.com/sharer/sharer.php?u='+url+'');
+    //openLinkInBrowser('https://www.facebook.com/sharer/sharer.php?u='+url+'');
+//}
