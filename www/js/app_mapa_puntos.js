@@ -185,15 +185,15 @@ function obtener_mi_posicion(){
             if(error.code == PositionError.POSITION_UNAVAILABLE){
 
               console.log("obtener_mi_posicion: POSITION_UNAVAILABLE")
-              navigator.notification.alert("No está disponible la localización", function(){}, "Lo sentimos", "Aceptar");
+              navigator.notification.alert("No está disponible la localización. Posición inválida", function(){}, "Lo sentimos", "Aceptar");
 
             }else if(error.code == PositionError.TIMEOUT){
               console.log("obtener_mi_posicion: TIMEOUT")
-              navigator.notification.alert("No está disponible la localización", function(){}, "Lo sentimos", "Aceptar");
+              navigator.notification.alert("Tiempo de espera agotado. No está disponible la geolocazción.", function(){}, "Lo sentimos", "Aceptar");
 
             }else if(error.code == PositionError.PERMISSION_DENIED){
               console.log("obtener_mi_posicion: PERMISSION_DENIED")
-              navigator.notification.alert("No está disponible la localización", function(){}, "Lo sentimos", "Aceptar");
+              navigator.notification.alert("Se ha negado el servicio de localización. No está disponible la localización", function(){}, "Lo sentimos", "Aceptar");
 
             }else{
               console.log("obtener_mi_posicion: OTRO con codigo " + error.code)
