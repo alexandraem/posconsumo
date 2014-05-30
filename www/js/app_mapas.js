@@ -123,7 +123,8 @@ var MapaObjeto = {
     obtener_mi_posicion: function(callback){
         navigator.geolocation.getCurrentPosition( function(position){
             MapaAtributos.mi_posicion = position
-
+            $("#debug").html("<br> Respondio la posicion")
+            console.log("respondio")
             var lat = position.coords.latitude
             var lon = position.coords.longitude
             var point = new google.maps.LatLng(lat, lon)

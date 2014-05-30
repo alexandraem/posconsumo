@@ -1,5 +1,7 @@
 
 var geocoder;
+var directionsService;
+var directionsDisplay;
 var mi_posicion;
 var DptDelSelect ="";
 var mncDelSelect ="";
@@ -25,6 +27,10 @@ angular.module('mapsApp', [])
 
     $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
+    directionsService = new google.maps.DirectionsService();
+    directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers : true});
+    directionsDisplay.setMap($scope.map);
+
     $scope.markers = [];
     
     var infoWindow = new google.maps.InfoWindow();
@@ -33,7 +39,9 @@ angular.module('mapsApp', [])
         
         info.latitud = parseFloat(info.latitud);
         info.longitud = parseFloat(info.longitud);
+
 ////OJO Set de datos malo... valores que deben ser negativos estan positivos ejempleo (6.262061, 75.59186799999998)
+        
         if(info.longitud  > 0){
             info.longitud = info.longitud * -1;
 
@@ -44,11 +52,12 @@ angular.module('mapsApp', [])
             position: point,
             title: info.vocero
         });
-        marker.content = '<div class="infoWindowContent">' + info.direccion + '<div class="infoWindowButton"><button class="button button-green btnLlegar" onclick="obtener_mi_posicion()">&iquest;C&oacute;mo llegar?</button></div>';
+        marker.content = '<div class="infoWindowContent">' + info.direccion + '<div class="infoWindowButton"><button class="button button-green btnLlegar" onclick="mostrar_ruta()">&iquest;C&oacute;mo llegar?</button></div>';
         
         google.maps.event.addListener(marker, 'click', function(){
             infoWindow.setContent('<h2 class="h2Mapa">' + marker.title + '</h2>' + marker.content);
             infoWindow.open($scope.map, marker);
+            window.info_punto_clickeado = info
         });
         //console.log("po= "+marker.position);
                 
@@ -57,7 +66,6 @@ angular.module('mapsApp', [])
     }  
     
     $scope.listadoLugares = function(){
-            
             var CodDpto = sessionStorage.getItem("dpSelect");
             var CodMnpio = sessionStorage.getItem("mnSelect");
             var ct = sessionStorage.getItem("ctSelect");
@@ -83,25 +91,60 @@ angular.module('mapsApp', [])
                         $scope.map.fitBounds($scope.bound);
                     }
                 })
-        }
-
-         $scope.listadoLugares();		 
-     
+    }
+    $scope.listadoLugares();
 });
 
-function obtener_mi_posicion(){
+
+
+function mostrar_ruta(){
+
+    obtener_mi_posicion(function( info_yo ){
+
+        var info_punto = window.info_punto_clickeado
+        var start = new google.maps.LatLng( info_yo.lat, info_yo.lon )
+        var end = new google.maps.LatLng( info_punto.latitud, info_punto.longitud )
+        var request = {
+            origin: start,
+            destination: end,
+            travelMode: google.maps.TravelMode.WALKING
+        };
+        directionsService.route(request, function(response, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+          }else if(status == google.maps.DirectionsStatus.NOT_FOUND || status == google.maps.DirectionsStatus.ZERO_RESULTS ){
+            navigator.notification.alert("No es posible calcular ruta hasta ese destino.", function(){}, "Lo sentimos", "Aceptar");
+          }else if(status == google.maps.DirectionsStatus.OVER_QUERY_LIMIT || status == google.maps.DirectionsStatus.REQUEST_DENIED ){
+            navigator.notification.alert("Ésta funcionalidad no es posible usarla por el momento. Intente más tarde.", function(){}, "Lo sentimos", "Aceptar");
+          }else{
+            navigator.notification.alert("No es posible calcular ruta hasta ese destino.", function(){}, "Lo sentimos", "Aceptar");
+          }
+        });
+
+    })
+
+    
+}
+
+
+
+function obtener_mi_posicion( funcion ){
 	geocoder = new google.maps.Geocoder();
+    $("#debug").append("<br> Despues del geocoder")
 		
 	navigator.geolocation.getCurrentPosition( function(position){
 			
 			var scope = angular.element(document.getElementById('content-map')).scope();
 			var lat = position.coords.latitude
             var lon = position.coords.longitude
+
+            $("#debug").append("<br> Responde obtener_mi_posicion")
 			
 			console.log("lat "+lat + " lon "+lon);
 			
             var point = new google.maps.LatLng(lat, lon)
             geocoder.geocode({'latLng': point}, function(results, status) {
+                $("#debug").append("<br> Geocoder responde")
                 if (status == google.maps.GeocoderStatus.OK) {
                     try{
 					
@@ -132,8 +175,14 @@ function obtener_mi_posicion(){
 										markerPersona.setMap(null)
 									}
 									markerPersona = marker
-									marker.setMap(scope.map)
-									scope.map.setCenter(point)
+									marker.setMap( scope.map )
+									scope.map.setCenter( point )
+
+                                    if(funcion!=undefined){
+                                        console.log( "comenzar a mostra la ruta" )
+                                        funcion( {"lat": lat, "lon": lon} )
+                                    }
+
 								}else{
 									navigator.notification.alert("No fue posible ubicar su posición", function(){}, "Error", "Aceptar");
 								}

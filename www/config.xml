@@ -24,24 +24,34 @@
     <feature name="http://api.phonegap.com/1.0/notification"/>
     <feature name="http://api.phonegap.com/1.0/network"/>
 
-
+<!--
     <feature name="Geolocation">
       <param name="android-package" value="org.apache.cordova.GeoBroker"/>
       <param name="ios-package" value="CDVLocation"/>
     </feature>
+-->
+
+    <feature name="Geolocation">
+        <!-- <param name="android-package" value="org.apache.cordova.GeoBroker"/> -->
+        <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
+        <param name="ios-package" value="CDVLocation" />
+    </feature>
 
     <feature name="Notification">
-        <param name="android-package" value="org.apache.cordova.Notification" />
+        <!--<param name="android-package" value="org.apache.cordova.Notification" />-->
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
         <param name="ios-package" value="CDVNotification" />
     </feature>
 
     <feature name="Device">
-      <param name="android-package" value="org.apache.cordova.Device"/>
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+        <!--<param name="android-package" value="org.apache.cordova.Device"/>-->
     </feature>
 
     <feature name="NetworkStatus">
-      <param name="android-package" value="org.apache.cordova.NetworkManager"/>
-      <param name="ios-package" value="CDVConnection"/>
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+        <!--<param name="android-package" value="org.apache.cordova.NetworkManager"/>-->
+        <param name="ios-package" value="CDVConnection" />
     </feature>
 
 
