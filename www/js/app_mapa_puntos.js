@@ -78,9 +78,16 @@ angular.module('mapsApp', [])
                     for (var i = 0; i < data.d.length; i++) {
                             lugares.push(data.d[i])
                     }
-                    $scope.puntos = lugares; 
-                    $scope.$digest()
+                       // $scope.puntos = lugares;
 
+                        var pruebas = [
+                        { "PartitionKey": "592A1F2A-7C5E-4537-9BB0-160C6D874900", "RowKey": "CBB62211-9778-4F74-B9B2-5E010D2EF09D", "nid": "3", "vocero": "INCOLMOTOS YAMAHA S.A", "categoria": "BUPA", "subcategoria": "MOTOCICLETAS", "email": "", "codigodepto": "17", "departamento": "CALDAS", "codigomunicipio": "17001", "municipio": "MANIZALES", "direccion": "Carrera  6 No 18 - 06  Av Circunvalar B/ Colon", "latitud": "5.067747", "longitud": "-75.517154" }, { "PartitionKey": "0DEF2E79-37E4-4053-8059-2B0314F245CC", "RowKey": "F50A2A1E-D14A-4C44-AD33-61C4E041E14A", "nid": "4", "vocero": "INCOLMOTOS YAMAHA S.A", "categoria": "BUPA", "subcategoria": "MOTOCICLETAS", "email": "", "codigodepto": "17", "departamento": "CALDAS", "codigomunicipio": "17001", "municipio": "MANIZALES", "direccion": "Calle 47 No  3 - 51", "latitud": "5.068027", "longitud": "-75.520172" }
+                          ];
+                        
+                         $scope.puntos = pruebas;
+        
+                      $scope.$digest()
+    
                     if($scope.puntos.length > 0){
 						DptDelSelect = $scope.puntos[1].departamento;
 						mncDelSelect = $scope.puntos[1].municipio;
@@ -157,40 +164,41 @@ function obtener_mi_posicion( funcion ){
                         }					
 						
 						////////////////////////////////if solo para pruebas///////////////////////////////////////////////////////////////
-						if(Mi_departamento.toUpperCase() == "CALDAS" && Mi_ciudad.toUpperCase() == "MANIZALES"){
-							//ubicarme();
-							
-							if(scope.map != null){
-									console.log("en ubicarme");
-								if(lat != null && lon != null){
-									console.log("lat scope: "+lat);
-									var point = new google.maps.LatLng(lat, lon)
-									var marker = new google.maps.Marker({
-										position: point,
-										title:"Yo!",
-										icon: pin_persona
-									});
-									
-									if(markerPersona != null){
-										markerPersona.setMap(null)
-									}
-									markerPersona = marker
-									marker.setMap( scope.map )
-									scope.map.setCenter( point )
+//						if(Mi_departamento.toUpperCase() == "CALDAS" && Mi_ciudad.toUpperCase() == "MANIZALES"){
+//							//ubicarme();
+//							
+//							if(scope.map != null){
+//									console.log("en ubicarme");
+//								if(lat != null && lon != null){
+//									console.log("lat scope: "+lat);
+//									var point = new google.maps.LatLng(lat, lon)
+//									var marker = new google.maps.Marker({
+//										position: point,
+//										title:"Yo!",
+//										icon: pin_persona
+//									});
+//									
+//									if(markerPersona != null){
+//										markerPersona.setMap(null)
+//									}
+//									markerPersona = marker
+//									marker.setMap( scope.map )
+//									scope.map.setCenter( point )
 
-                                    if(funcion!=undefined){
-                                        console.log( "comenzar a mostra la ruta" )
-                                        funcion( {"lat": lat, "lon": lon} )
-                                    }
+//                                    if(funcion!=undefined){
+//                                        console.log( "comenzar a mostra la ruta" )
+//                                        funcion( {"lat": lat, "lon": lon} )
+//                                    }
 
-								}else{
-									navigator.notification.alert("No fue posible ubicar su posición", function(){}, "Error", "Aceptar");
-								}
-							}else{
-								navigator.notification.alert("El mapa no se cargó no se puede ubicar mi posición", function(){}, "Error", "Aceptar");
-							}
-						}////////////////////////////////////////////////
-						else if (Mi_departamento.toUpperCase() != DptDelSelect.toUpperCase()  ||  Mi_ciudad.toUpperCase() != mncDelSelect.toUpperCase()){
+//								}else{
+//									navigator.notification.alert("No fue posible ubicar su posición", function(){}, "Error", "Aceptar");
+//								}
+//							}else{
+//								navigator.notification.alert("El mapa no se cargó no se puede ubicar mi posición", function(){}, "Error", "Aceptar");
+//							}
+//						}////////////////////////////////////////////////
+//                        else 
+                        if (Mi_departamento.toUpperCase() != DptDelSelect.toUpperCase()  ||  Mi_ciudad.toUpperCase() != mncDelSelect.toUpperCase()){
 							navigator.notification.alert("No es posible trazar una ruta porque usted no fue localizado en el mismo municipio del punto seleccionado.", function(){}, "Otro municipio", "Aceptar");
 						}
 						else{
