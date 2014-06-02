@@ -105,32 +105,30 @@ angular.module('mapsApp', [])
 
 
 function mostrar_ruta(){
-
-    obtener_mi_posicion(function( info_yo ){
+    console.log("mostrar_ruta");
+    obtener_mi_posicion(function (info_yo) {
 
         var info_punto = window.info_punto_clickeado
-        var start = new google.maps.LatLng( info_yo.lat, info_yo.lon )
-        var end = new google.maps.LatLng( info_punto.latitud, info_punto.longitud )
+        var start = new google.maps.LatLng(info_yo.lat, info_yo.lon)
+        var end = new google.maps.LatLng(info_punto.latitud, info_punto.longitud)
         var request = {
             origin: start,
             destination: end,
             travelMode: google.maps.TravelMode.WALKING
         };
-        directionsService.route(request, function(response, status) {
-          if (status == google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(response);
-          }else if(status == google.maps.DirectionsStatus.NOT_FOUND || status == google.maps.DirectionsStatus.ZERO_RESULTS ){
-            navigator.notification.alert("No es posible calcular ruta hasta ese destino.", function(){}, "Lo sentimos", "Aceptar");
-          }else if(status == google.maps.DirectionsStatus.OVER_QUERY_LIMIT || status == google.maps.DirectionsStatus.REQUEST_DENIED ){
-            navigator.notification.alert("Ésta funcionalidad no es posible usarla por el momento. Intente más tarde.", function(){}, "Lo sentimos", "Aceptar");
-          }else{
-            navigator.notification.alert("No es posible calcular ruta hasta ese destino.", function(){}, "Lo sentimos", "Aceptar");
-          }
+        directionsService.route(request, function (response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+            } else if (status == google.maps.DirectionsStatus.NOT_FOUND || status == google.maps.DirectionsStatus.ZERO_RESULTS) {
+                navigator.notification.alert("No es posible calcular ruta hasta ese destino.", function () { }, "Lo sentimos", "Aceptar");
+            } else if (status == google.maps.DirectionsStatus.OVER_QUERY_LIMIT || status == google.maps.DirectionsStatus.REQUEST_DENIED) {
+                navigator.notification.alert("Ésta funcionalidad no es posible usarla por el momento. Intente más tarde.", function () { }, "Lo sentimos", "Aceptar");
+            } else {
+                navigator.notification.alert("No es posible calcular ruta hasta ese destino.", function () { }, "Lo sentimos", "Aceptar");
+            }
         });
 
     })
-
-    
 }
 
 
@@ -138,130 +136,138 @@ function mostrar_ruta(){
 function obtener_mi_posicion( funcion ){
 	geocoder = new google.maps.Geocoder();
     $("#debug").append("<br> Despues del geocoder")
-		
-	navigator.geolocation.getCurrentPosition( function(position){
-			
-			var scope = angular.element(document.getElementById('content-map')).scope();
-			var lat = position.coords.latitude
-            var lon = position.coords.longitude
+    console.log("Despues del geocoder");
+    navigator.geolocation.getCurrentPosition(function (position) {
 
-            $("#debug").append("<br> Responde obtener_mi_posicion")
-			
-			console.log("lat "+lat + " lon "+lon);
-			
-            var point = new google.maps.LatLng(lat, lon)
-            geocoder.geocode({'latLng': point}, function(results, status) {
-                $("#debug").append("<br> Geocoder responde")
-                if (status == google.maps.GeocoderStatus.OK) {
-                    try{
-					
-					    var Mi_ciudad = results[results.length - 3].address_components[0].long_name
-                        var Mi_departamento = results[results.length - 3].address_components[1].long_name
-											
-						if(Mi_ciudad.toUpperCase() == 'BOGOTÁ'){
-							Mi_departamento = "BOGOTÁ D.C"
-							Mi_ciudad = 'BOGOTÁ D.C'
-                        }					
-						
-						////////////////////////////////if solo para pruebas///////////////////////////////////////////////////////////////
-//						if(Mi_departamento.toUpperCase() == "CALDAS" && Mi_ciudad.toUpperCase() == "MANIZALES"){
-//							//ubicarme();
-//							
-//							if(scope.map != null){
-//									console.log("en ubicarme");
-//								if(lat != null && lon != null){
-//									console.log("lat scope: "+lat);
-//									var point = new google.maps.LatLng(lat, lon)
-//									var marker = new google.maps.Marker({
-//										position: point,
-//										title:"Yo!",
-//										icon: pin_persona
-//									});
-//									
-//									if(markerPersona != null){
-//										markerPersona.setMap(null)
-//									}
-//									markerPersona = marker
-//									marker.setMap( scope.map )
-//									scope.map.setCenter( point )
+        var scope = angular.element(document.getElementById('content-map')).scope();
+        var lat = position.coords.latitude
+        var lon = position.coords.longitude
 
-//                                    if(funcion!=undefined){
-//                                        console.log( "comenzar a mostra la ruta" )
-//                                        funcion( {"lat": lat, "lon": lon} )
-//                                    }
+        $("#debug").append("<br> Responde obtener_mi_posicion")
+        console.log("Responde obtener_mi_posicion")
 
-//								}else{
-//									navigator.notification.alert("No fue posible ubicar su posición", function(){}, "Error", "Aceptar");
-//								}
-//							}else{
-//								navigator.notification.alert("El mapa no se cargó no se puede ubicar mi posición", function(){}, "Error", "Aceptar");
-//							}
-//						}////////////////////////////////////////////////
-//                        else 
-                        if (Mi_departamento.toUpperCase() != DptDelSelect.toUpperCase()  ||  Mi_ciudad.toUpperCase() != mncDelSelect.toUpperCase()){
-							navigator.notification.alert("No es posible trazar una ruta porque usted no fue localizado en el mismo municipio del punto seleccionado.", function(){}, "Otro municipio", "Aceptar");
-						}
-						else{
-							if(scope.map != null){
-									console.log("en ubicarme");
-								if(lat != null && lon != null){
-									console.log("lat scope: "+lat);
-									var point = new google.maps.LatLng(lat, lon)
-									var marker = new google.maps.Marker({
-										position: point,
-										title:"Yo!",
-										icon: pin_persona
-									});
-									
-									if(markerPersona != null){
-										markerPersona.setMap(null)
-									}
-									markerPersona = marker
-									marker.setMap(scope.map)
-									scope.map.setCenter(point)
-								}else{
-									navigator.notification.alert("No fue posible ubicar su posición", function(){}, "Error", "Aceptar");
-								}
-							}else{
-								navigator.notification.alert("El mapa no se cargó no se puede ubicar mi posición", function(){}, "Error", "Aceptar");
-							}
-						}
-					}catch(e){
-					console.log("entró al catch");
-                        navigator.notification.alert("No pudimos localizar su ciudad.", function(){}, "Sin localización", "Aceptar");
+        console.log("lat " + lat + " lon " + lon);
+
+        var point = new google.maps.LatLng(lat, lon)
+        geocoder.geocode({ 'latLng': point }, function (results, status) {
+            $("#debug").append("<br> Geocoder responde")
+            if (status == google.maps.GeocoderStatus.OK) {
+                try {
+
+                    var Mi_ciudad = results[results.length - 3].address_components[0].long_name
+                    var Mi_departamento = results[results.length - 3].address_components[1].long_name
+
+                    if (Mi_ciudad.toUpperCase() == 'BOGOTÁ') {
+                        Mi_departamento = "BOGOTÁ D.C"
+                        Mi_ciudad = 'BOGOTÁ D.C'
                     }
-                } else {
-				console.log("entró al else");
-                    navigator.notification.alert("No pudimos localizar su ciudad.", function(){}, "Sin localización", "Aceptar");
+
+                    ////////////////////////////////if solo para pruebas///////////////////////////////////////////////////////////////
+                    //						if(Mi_departamento.toUpperCase() == "CALDAS" && Mi_ciudad.toUpperCase() == "MANIZALES"){
+                    //							//ubicarme();
+                    //							
+                    //							if(scope.map != null){
+                    //									console.log("en ubicarme");
+                    //								if(lat != null && lon != null){
+                    //									console.log("lat scope: "+lat);
+                    //									var point = new google.maps.LatLng(lat, lon)
+                    //									var marker = new google.maps.Marker({
+                    //										position: point,
+                    //										title:"Yo!",
+                    //										icon: pin_persona
+                    //									});
+                    //									
+                    //									if(markerPersona != null){
+                    //										markerPersona.setMap(null)
+                    //									}
+                    //									markerPersona = marker
+                    //									marker.setMap( scope.map )
+                    //									scope.map.setCenter( point )
+
+                    //                                    if(funcion!=undefined){
+                    //                                        console.log( "comenzar a mostra la ruta" )
+                    //                                        funcion( {"lat": lat, "lon": lon} )
+                    //                                    }
+
+                    //								}else{
+                    //									navigator.notification.alert("No fue posible ubicar su posición", function(){}, "Error", "Aceptar");
+                    //								}
+                    //							}else{
+                    //								navigator.notification.alert("El mapa no se cargó no se puede ubicar mi posición", function(){}, "Error", "Aceptar");
+                    //							}
+                    //						}////////////////////////////////////////////////
+                    //                        else 
+                    if (Mi_departamento.toUpperCase() != DptDelSelect.toUpperCase() || Mi_ciudad.toUpperCase() != mncDelSelect.toUpperCase()) {
+                        navigator.notification.alert("No es posible trazar una ruta porque usted no fue localizado en el mismo municipio del punto seleccionado.", function () { }, "Otro municipio", "Aceptar");
+                    }
+                    else {
+                        if (scope.map != null) {
+                            console.log("en ubicarme");
+                            if (lat != null && lon != null) {
+                                console.log("lat scope: " + lat);
+                                var point = new google.maps.LatLng(lat, lon)
+                                var marker = new google.maps.Marker({
+                                    position: point,
+                                    title: "Yo!",
+                                    icon: pin_persona
+                                });
+
+                                if (markerPersona != null) {
+                                    markerPersona.setMap(null)
+                                }
+                                markerPersona = marker
+                                marker.setMap(scope.map)
+                                scope.map.setCenter(point)
+
+                                if(funcion!=undefined){
+                                    console.log( "comenzar a mostra la ruta" )
+                                    funcion( {"lat": lat, "lon": lon} )
+                                 }
+
+
+                            } else {
+                                navigator.notification.alert("No fue posible ubicar su posición", function () { }, "Error", "Aceptar");
+                            }
+                        } else {
+                            navigator.notification.alert("El mapa no se cargó no se puede ubicar mi posición", function () { }, "Error", "Aceptar");
+                        }
+                    }
+                } catch (e) {
+                    console.log("entró al catch");
+                    navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localización", "Aceptar");
                 }
-            });
-        },
-        function( error ){
-		console.log("Entró al error");
+            } else {
+                console.log("entró al else");
+                navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localización", "Aceptar");
+            }
+        });
+    },
+        function (error) {
+            console.log("Entró al error");
             //navigator.notification.alert("OMP: " + error.message , "",  "C: " + error.code, "Aceptar");
-            if(error.code == PositionError.POSITION_UNAVAILABLE){
+            if (error.code == PositionError.POSITION_UNAVAILABLE) {
 
-              console.log("obtener_mi_posicion: POSITION_UNAVAILABLE")
-              navigator.notification.alert("No está disponible la localización. Posición inválida", function(){}, "Lo sentimos", "Aceptar");
+                console.log("obtener_mi_posicion: POSITION_UNAVAILABLE")
+                navigator.notification.alert("No está disponible la localización. Posición inválida", function () { }, "Lo sentimos", "Aceptar");
 
-            }else if(error.code == PositionError.TIMEOUT){
-              console.log("obtener_mi_posicion: TIMEOUT")
-              navigator.notification.alert("Tiempo de espera agotado. No está disponible la geolocazción.", function(){}, "Lo sentimos", "Aceptar");
+            } else if (error.code == PositionError.TIMEOUT) {
+                console.log("obtener_mi_posicion: TIMEOUT")
+                navigator.notification.alert("Tiempo de espera agotado. No está disponible la geolocazción.", function () { }, "Lo sentimos", "Aceptar");
 
-            }else if(error.code == PositionError.PERMISSION_DENIED){
-              console.log("obtener_mi_posicion: PERMISSION_DENIED")
-              navigator.notification.alert("Se ha negado el servicio de localización. No está disponible la localización", function(){}, "Lo sentimos", "Aceptar");
+            } else if (error.code == PositionError.PERMISSION_DENIED) {
+                console.log("obtener_mi_posicion: PERMISSION_DENIED")
+                navigator.notification.alert("Se ha negado el servicio de localización. No está disponible la localización", function () { }, "Lo sentimos", "Aceptar");
 
-            }else{
-              console.log("obtener_mi_posicion: OTRO con codigo " + error.code)
-              navigator.notification.alert("No está disponible la localización", function(){}, "Lo sentimos", "Aceptar");
+            } else {
+                console.log("obtener_mi_posicion: OTRO con codigo " + error.code)
+                navigator.notification.alert("No está disponible la localización", function () { }, "Lo sentimos", "Aceptar");
             }
 
-           // $.loading('hide')
-            if(Mi_ciudad == ''){
-				navigator.notification.alert("Al parecer el GPS no funciona correctamente", function(){}, "Lo sentimos", "Aceptar");
-			}
-                
+            // $.loading('hide')
+            if (Mi_ciudad == '') {
+                navigator.notification.alert("Al parecer el GPS no funciona correctamente", function () { }, "Lo sentimos", "Aceptar");
+            }
+
         },
         { timeout: 15000 });
     }
