@@ -127,7 +127,10 @@ ambienteApp.config( ['$routeProvider', '$locationProvider',
 
 ///////////////////////////////// CONSULTAS AL SET DE DATOS
 
-function getDeptos(success){
+function getDeptos(success) {
+    var conex = checkConnection();
+
+
     $.getJSON(
         'http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/lugarespuntos01?$format=json',
         function(data, textStatus, jqXHR){
@@ -149,12 +152,16 @@ function getDeptos(success){
                     dptos.push(object)
                 }
             }
-
              success(dptos)
         })
 }
 
 function Volver() {
     window.location.href = "_donde.html#/categorias";
+}
+
+function ir() {
+    mostrarCargando("Espere un momento por favor"); 
+    window.location.href = 'index.html';
 }
 

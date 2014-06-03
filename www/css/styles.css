@@ -382,11 +382,18 @@ left: 0;
 right: 0;
 bottom: 0;
 z-index: 1000;
-background: rgba(0,0,0,0.8);
+background: rgba(0,0,0,0.9);
 text-align: center;
 color: #fff;
-font-size: 22px;
+padding-top: 25%;
 display: none;
+}
+
+#sinInternet>p
+{
+    font-size: 15px;
+    padding: 10px;
+    line-height: 25px;
 }
 
 .no-internet #sinInternet{

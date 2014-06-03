@@ -50,16 +50,18 @@ var app = {
     },
     // Devuelve si hay o no conexión a internet
     checkConnection: function() {
-	    console.log("checkConnection: Comprobando conectividad a internet!");
+        //navigator.notification.alert("Comprobando internet", function () { }, "Verifica internet", "Aceptar");
 	    var networkState = navigator.connection.type;
 	    if (networkState == Connection.NONE || networkState == Connection.UNKNOWN) {
-	      console.log("checkConnection: No hay internet!");
+	      navigator.notification.alert("El uso de la aplicación requiere internet. Por favor verifique su conexión.", function () { }, "Sin internet", "Aceptar");
+          $("body").addClass("no-internet")
 	      return false;
 	    } else {
 	      console.log("checkConnection: Si hay internet!");
+          $("body").removeClass("no-internet")
 	      return true;
 	    }
-	},
+	}
 };
 
 

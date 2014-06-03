@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.engenial.fnaentubolsillo"
+<widget id="com.engenial.posconsumo"
     version="1.0.0"
     xmlns="http://www.w3.org/ns/widgets"
     xmlns:gap="http://phonegap.com/ns/1.0" >
@@ -10,7 +10,7 @@
 
 
     <description>
-        Recolección de elementos ambientales
+        Recolección de elementos ambientales posconsumo
     </description>
 
 
@@ -104,6 +104,8 @@
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
 
+    <gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
+    <gap:plugin name="org.apache.cordova.dialogs" version="0.2.6" />
     <gap:plugin name="nl.x-services.plugins.socialsharing" version="4.0.8" />
 
     <access origin="*" />

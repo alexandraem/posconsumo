@@ -7,7 +7,7 @@ var ambienteApp = angular.module(
 
 
 ambienteApp.controller( 'CampaniasCtrl', ['$scope', '$http', '$location',
-    function( $scope, $http, $location ) {  
+    function ($scope, $http, $location) {
         getCampanias(function( campanias ){
             $scope.campaniaLista = campanias
             $scope.$apply()
@@ -16,8 +16,6 @@ ambienteApp.controller( 'CampaniasCtrl', ['$scope', '$http', '$location',
         $scope.mostrar = function(campania){
             $location.path("/" + campania.nid)
         }
-
-
     }
 ])
 ambienteApp.controller( 'CampaniaDetalleCtrl', ['$scope', '$http', '$location', '$routeParams',
@@ -89,10 +87,4 @@ function getCampanias( success ){
             console.log(data);
             success(data.d)
         })
-}
-
-//function CompartirFB( urlCompartir ){
-   // var url = urlCompartir.replace('-','&');
-    //console.log('https://www.facebook.com/sharer/sharer.php?u='+url+'');
-    //openLinkInBrowser('https://www.facebook.com/sharer/sharer.php?u='+url+'');
-//}
+    }
