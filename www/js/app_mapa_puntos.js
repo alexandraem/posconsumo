@@ -105,7 +105,7 @@ angular.module('mapsApp', [])
 
 
 function mostrar_ruta(){
-    console.log("mostrar_ruta");
+
     obtener_mi_posicion(function (info_yo) {
 
         var info_punto = window.info_punto_clickeado
@@ -116,7 +116,10 @@ function mostrar_ruta(){
             destination: end,
             travelMode: google.maps.TravelMode.WALKING
         };
+
+        mostrarCargando("Trazando la ruta")
         directionsService.route(request, function (response, status) {
+            ocultarCargando();
             if (status == google.maps.DirectionsStatus.OK) {
                 directionsDisplay.setDirections(response);
             } else if (status == google.maps.DirectionsStatus.NOT_FOUND || status == google.maps.DirectionsStatus.ZERO_RESULTS) {
@@ -133,12 +136,15 @@ function mostrar_ruta(){
 
 
 
-function obtener_mi_posicion( funcion ){
+function obtener_mi_posicion(funcion) {
+    
 	geocoder = new google.maps.Geocoder();
     $("#debug").append("<br> Despues del geocoder")
     console.log("Despues del geocoder");
-    navigator.geolocation.getCurrentPosition(function (position) {
 
+    mostrarCargando("Geolocalizando mi posición");
+    navigator.geolocation.getCurrentPosition(function (position) {
+        ocultarCargando();
         var scope = angular.element(document.getElementById('content-map')).scope();
         var lat = position.coords.latitude
         var lon = position.coords.longitude
@@ -149,11 +155,14 @@ function obtener_mi_posicion( funcion ){
         console.log("lat " + lat + " lon " + lon);
 
         var point = new google.maps.LatLng(lat, lon)
+
+        mostrarCargando("Obteniendo mi ciudad");
         geocoder.geocode({ 'latLng': point }, function (results, status) {
             $("#debug").append("<br> Geocoder responde")
+            ocultarCargando();
             if (status == google.maps.GeocoderStatus.OK) {
                 try {
-
+                    mostrarCargando("Ciudad obtenida");
                     var Mi_ciudad = results[results.length - 3].address_components[0].long_name
                     var Mi_departamento = results[results.length - 3].address_components[1].long_name
 
@@ -202,7 +211,6 @@ function obtener_mi_posicion( funcion ){
                     }
                     else {
                         if (scope.map != null) {
-                            console.log("en ubicarme");
                             if (lat != null && lon != null) {
                                 console.log("lat scope: " + lat);
                                 var point = new google.maps.LatLng(lat, lon)
@@ -219,30 +227,33 @@ function obtener_mi_posicion( funcion ){
                                 marker.setMap(scope.map)
                                 scope.map.setCenter(point)
 
-                                if(funcion!=undefined){
-                                    console.log( "comenzar a mostra la ruta" )
-                                    funcion( {"lat": lat, "lon": lon} )
-                                 }
+                                ocultarCargando();
+                                if (funcion != undefined) {
+                                    funcion({ "lat": lat, "lon": lon })
+                                }
 
 
                             } else {
+                                ocultarCargando();
                                 navigator.notification.alert("No fue posible ubicar su posición", function () { }, "Error", "Aceptar");
                             }
                         } else {
+                            ocultarCargando();
                             navigator.notification.alert("El mapa no se cargó no se puede ubicar mi posición", function () { }, "Error", "Aceptar");
                         }
                     }
                 } catch (e) {
-                    console.log("entró al catch");
+                    ocultarCargando();
                     navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localización", "Aceptar");
                 }
             } else {
-                console.log("entró al else");
+                ocultarCargando();
                 navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localización", "Aceptar");
             }
         });
     },
         function (error) {
+            ocultarCargando();
             console.log("Entró al error");
             //navigator.notification.alert("OMP: " + error.message , "",  "C: " + error.code, "Aceptar");
             if (error.code == PositionError.POSITION_UNAVAILABLE) {

@@ -392,7 +392,42 @@ display: none;
 .no-internet #sinInternet{
 	display: block;
 }
-/******************************ии/
+/******************************/
+
+
+
+/*******pruebas loading********************************/
+
+#cargando{
+    position: fixed;
+    z-index: 2500;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FFF;
+    z-index: 999999;
+    font-size:100%;
+    display: none;
+}
+
+#cargandostatus{
+    position: fixed;
+    z-index: 999999;
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-image: url(../img/status.gif);
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: -125px 0 0 -125px;
+    font-size: 100%;
+}
+/*********************************************************/
+
 
 @media (min-width: 760px){
     .menuPrincipal>.one-half-responsive{

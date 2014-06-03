@@ -12,9 +12,9 @@ ambienteApp.config(function($sceDelegateProvider) {
    });
 
 
-ambienteApp.controller( 'VideosCtrl', ['$scope', '$http', '$location',
-    function( $scope, $http, $location ) {  
-        getVideos(function( videos ){
+   ambienteApp.controller('VideosCtrl', ['$scope', '$http', '$location',
+    function ($scope, $http, $location) {
+        getVideos(function (videos) {
             //console.log(videos)
             //for (var i = 0; i > videos.length; i++) {
             //    console.log("algo " + videos[i].url);
@@ -22,7 +22,7 @@ ambienteApp.controller( 'VideosCtrl', ['$scope', '$http', '$location',
             //};
 
             $scope.videoLista = videos
-            
+           
             $scope.$apply()
         })
     }

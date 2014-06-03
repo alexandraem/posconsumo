@@ -72,3 +72,14 @@ function openLinkInBrowser(url){
         window.open(url, "_system");
     }
 }
+
+
+
+function mostrarCargando(texto){
+    $("#cargando #cargando-texto").html(texto);
+    $("#cargando").css("display", "block");
+}
+
+function ocultarCargando(){
+    $("#cargando").css("display", "none");
+}
