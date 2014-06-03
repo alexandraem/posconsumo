@@ -15,14 +15,14 @@
 */
 var app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
         this.bindEvents();
     },
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
+    bindEvents: function () {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.addEventListener('offline', this.onChangeConnection, false);
         document.addEventListener('online', this.onChangeConnection, false);
@@ -31,37 +31,37 @@ var app = {
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
+    onDeviceReady: function () {
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
+    receivedEvent: function (id) {
         console.log('Received Event: ' + id);
     },
     //
-    onChangeConnection: function(){
-    	if( app.checkConnection() ){
-    		$("body").removeClass("no-internet")
+    onChangeConnection: function () {
+        if (app.checkConnection()) {
+            $("body").removeClass("no-internet")
             app.with_internet = true
-    	} else {
-    		$("body").addClass("no-internet")
+        } else {
+            $("body").addClass("no-internet")
             app.with_internet = false
-    	}
+        }
     },
     // Devuelve si hay o no conexión a internet
-    checkConnection: function() {
+    checkConnection: function () {
         //navigator.notification.alert("Comprobando internet", function () { }, "Verifica internet", "Aceptar");
-	    var networkState = navigator.connection.type;
-	    if (networkState == Connection.NONE || networkState == Connection.UNKNOWN) {
-	      navigator.notification.alert("El uso de la aplicación requiere internet. Por favor verifique su conexión.", function () { }, "Sin internet", "Aceptar");
-          $("body").addClass("no-internet")
-	      return false;
-	    } else {
-	      console.log("checkConnection: Si hay internet!");
-          $("body").removeClass("no-internet")
-	      return true;
-	    }
-	}
+        var networkState = navigator.connection.type;
+        if (networkState == Connection.NONE || networkState == Connection.UNKNOWN) {
+            navigator.notification.alert("El uso de la aplicación requiere internet. Por favor verifique su conexión.", function () { }, "Sin internet", "Aceptar");
+            $("body").addClass("no-internet")
+            return false;
+        } else {
+            console.log("checkConnection: Si hay internet!");
+            $("body").removeClass("no-internet")
+            return true;
+        }
+    }
 };
 
 

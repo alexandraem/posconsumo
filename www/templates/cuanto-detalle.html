@@ -28,7 +28,7 @@
 
     <div>
         <div class="big-notification blue-notification">
-            <h4 class="uppercase">¿Que estás logrando con ésto?</h4>
+            <h4 class="uppercase">Si recolectaste {{cantidad}} ... ¿Que estás logrando con ésto?</h4>
             <p class="center-text uppercase" ng-show="cantidad >= puntaje.min && cantidad <= puntaje.max" ng-repeat="puntaje in puntajes">
                 {{puntaje.mensaje}}
             </p>

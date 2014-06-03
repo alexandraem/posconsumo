@@ -141,7 +141,7 @@ function obtener_mi_posicion(funcion) {
 	geocoder = new google.maps.Geocoder();
     //$("#debug").append("<br> Despues del geocoder")
 
-    mostrarCargando("Geolocalizando mi posición");
+	mostrarCargando("Geolocalizando mi posici&oacute;n");
     navigator.geolocation.getCurrentPosition(function (position) {
         ocultarCargando();
         var scope = angular.element(document.getElementById('content-map')).scope();
@@ -232,20 +232,20 @@ function obtener_mi_posicion(funcion) {
 
                             } else {
                                 ocultarCargando();
-                                navigator.notification.alert("No fue posible ubicar su posición", function () { }, "Error", "Aceptar");
+                                navigator.notification.alert("No fue posible ubicar su posici&oacute;n", function () { }, "Error", "Aceptar");
                             }
                         } else {
                             ocultarCargando();
-                            navigator.notification.alert("El mapa no se cargó correctamente. No fue posible localizar su posición.", function () { }, "Error", "Aceptar");
+                            navigator.notification.alert("El mapa no se carg&oacute; correctamente. No fue posible localizar su posici&oacute;n.", function () { }, "Error", "Aceptar");
                         }
                     }
                 } catch (e) {
                     ocultarCargando();
-                    navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localización", "Aceptar");
+                    navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localizaci&oacute;n", "Aceptar");
                 }
             } else {
                 ocultarCargando();
-                navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localización", "Aceptar");
+                navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localizaci&oacute;n", "Aceptar");
             }
         });
     },
@@ -254,21 +254,21 @@ function obtener_mi_posicion(funcion) {
             //$("#debug").append("geolocalizando: error");
             //navigator.notification.alert("OMP: " + error.message, function () { }, "C: " + error.code, "Aceptar");
             if (error.code == error.POSITION_UNAVAILABLE) {
-                navigator.notification.alert("No es posible concretar la acción. Se detectó una posición inválida", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("No es posible concretar la acci&oacute;n. Se detectó una  posici&oacute;n inv&aacute;lida", function () { }, "Lo sentimos", "Aceptar");
 
             } else if (error.code == error.TIMEOUT) {
-                navigator.notification.alert("Tiempo de espera agotado. No fue posible localizar su posición.", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("Tiempo de espera agotado. No fue posible localizar su  posici&oacute;n.", function () { }, "Lo sentimos", "Aceptar");
 
             } else if (error.code == error.PERMISSION_DENIED) {
-                navigator.notification.alert("No está disponible la localización. Se ha negado el servicio de localización.", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("No est&aacute;n disponible la localizaci&oacute;n. Se ha negado el servicio de localizaci&oacute;n.", function () { }, "Lo sentimos", "Aceptar");
 
             } else {
-                navigator.notification.alert("No está disponible la localización", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("No est&aacute;n disponible la localizaci&oacute;n", function () { }, "Lo sentimos", "Aceptar");
             }
 
             // $.loading('hide')
             if (Mi_ciudad == '') {
-                navigator.notification.alert("Al parecer el GPS no funciona correctamente. No fue posible localizar su posición.", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("Al parecer el GPS no funciona correctamente. No fue posible localizar su  posici&oacute;n.", function () { }, "Lo sentimos", "Aceptar");
             }
 
         },
