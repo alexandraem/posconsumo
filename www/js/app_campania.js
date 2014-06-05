@@ -19,12 +19,16 @@ ambienteApp.controller( 'CampaniasCtrl', ['$scope', '$http', '$location',
     }
 ])
 ambienteApp.controller( 'CampaniaDetalleCtrl', ['$scope', '$http', '$location', '$routeParams',
-    function( $scope, $http, $location, $routeParams ) {
-        getCampania( $routeParams.campaniaId , function( campain ){
+    function ($scope, $http, $location, $routeParams) {
+
+        getCampania($routeParams.campaniaId, function (campain) {
+            mostrarCargando("Cargando información de la campaña")
             $scope.campain = campain
-            $scope.campain.informacion = $scope.campain.informacion.replace('y','&'); 
+            $scope.campain.informacion = $scope.campain.informacion.replace('y','&');
             $scope.$apply()
+            ocultarCargando();
         })
+       
 
         $scope.compartir = function(){
             window.plugins.socialsharing.share('He visto la campaña '+ $scope.campain.nombre +' Visita ', null, null,  $scope.campain.informacion )

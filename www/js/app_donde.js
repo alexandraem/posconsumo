@@ -40,26 +40,33 @@ ambienteApp.controller( 'LugaresCategoriasCtrl', ['$scope', '$http', '$location'
     function ($scope, $http, $location, $routeParams) {
 
         $scope.state = "Cargando departamentos..."
-        mostrarCargando("Cargando departamentos")
-        getDeptos(function (departamentos) {
-            console.log("departamento");
-            $scope.departs = departamentos
-            if ($scope.departs.length > 0) {
-                //deptoSel se crea en el select en el html
-                $scope.deptoSel = $scope.departs[0].codigo
-            }
-            $scope.state = ""
-            $scope.$apply()
-            ocultarCargando();
-            $scope.cargarMunicipios();
-        })
+
+      //  var conect = app.checkConnection();
+
+       // alert(conect);
+
+       // if (conect) {
+            mostrarCargando("Cargando departamentos")
+            getDeptos(function (departamentos) {
+                console.log("departamento");
+                $scope.departs = departamentos
+                if ($scope.departs.length > 0) {
+                    //deptoSel se crea en el select en el html
+                    $scope.deptoSel = $scope.departs[0].codigo
+                }
+                $scope.state = ""
+                $scope.$apply()
+                ocultarCargando();
+                $scope.cargarMunicipios();
+            })
+      //  }
 
         $scope.cargarMunicipios = function () {
-           
-                $scope.state = "Cargando municipios..."
-                var CodDpto = $scope.deptoSel;
-                mostrarCargando("Cargando municipios");
-                $.getJSON(
+
+            $scope.state = "Cargando municipios..."
+            var CodDpto = $scope.deptoSel;
+            mostrarCargando("Cargando municipios");
+            $.getJSON(
                 "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/lugarespuntos01?$filter=codigodepartamento%20EQ%20'" + CodDpto + "'&$format=json",
                 function (data, textStatus, jqXHR) {
                     var mnpios = [];
@@ -74,8 +81,8 @@ ambienteApp.controller( 'LugaresCategoriasCtrl', ['$scope', '$http', '$location'
                     $scope.$digest()
                     ocultarCargando();
                 })
-            }
-        
+        }
+
 
         $scope.listadoLugares = function () {
             $scope.state = "Cargando puntos de recolección..."
@@ -83,8 +90,8 @@ ambienteApp.controller( 'LugaresCategoriasCtrl', ['$scope', '$http', '$location'
             var CodMnpio = $scope.munSel;
             console.log("categoria =" + $routeParams.categoria)
 
-                mostrarCargando("Cargando puntos de recolección");
-                $.getJSON(
+            mostrarCargando("Cargando puntos de recolección");
+            $.getJSON(
                 "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/puntosposconsumo?$filter=codigodepto%20EQ%20'" + CodDpto + "'%20and%20codigomunicipio%20EQ%20'" + CodMnpio + "'%20and%20categoria%20EQ%20'" + $routeParams.categoria + "'&$format=json",
                 function (data, textStatus, jqXHR) {
                     console.log(data)

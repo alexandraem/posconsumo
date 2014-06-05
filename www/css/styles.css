@@ -374,6 +374,11 @@ body .button{
     font-size: 11px;
 }
 
+#dvganar
+{
+    text-align:center;
+    }
+
 /*********Pruebas sin internet*********************/
 #sinInternet{
 position: fixed;

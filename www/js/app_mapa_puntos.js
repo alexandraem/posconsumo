@@ -78,13 +78,12 @@ angular.module('mapsApp', [])
                     for (var i = 0; i < data.d.length; i++) {
                             lugares.push(data.d[i])
                     }
-                       // $scope.puntos = lugares;
+                        $scope.puntos = lugares;
 
-                        var pruebas = [
-                        { "PartitionKey": "592A1F2A-7C5E-4537-9BB0-160C6D874900", "RowKey": "CBB62211-9778-4F74-B9B2-5E010D2EF09D", "nid": "3", "vocero": "INCOLMOTOS YAMAHA S.A", "categoria": "BUPA", "subcategoria": "MOTOCICLETAS", "email": "", "codigodepto": "17", "departamento": "CALDAS", "codigomunicipio": "17001", "municipio": "MANIZALES", "direccion": "Carrera  6 No 18 - 06  Av Circunvalar B/ Colon", "latitud": "5.067747", "longitud": "-75.517154" }, { "PartitionKey": "0DEF2E79-37E4-4053-8059-2B0314F245CC", "RowKey": "F50A2A1E-D14A-4C44-AD33-61C4E041E14A", "nid": "4", "vocero": "INCOLMOTOS YAMAHA S.A", "categoria": "BUPA", "subcategoria": "MOTOCICLETAS", "email": "", "codigodepto": "17", "departamento": "CALDAS", "codigomunicipio": "17001", "municipio": "MANIZALES", "direccion": "Calle 47 No  3 - 51", "latitud": "5.068027", "longitud": "-75.520172" }
-                          ];
-                        
-                         $scope.puntos = pruebas;
+                      //  var pruebas = [
+                       // { "PartitionKey": "592A1F2A-7C5E-4537-9BB0-160C6D874900", "RowKey": "CBB62211-9778-4F74-B9B2-5E010D2EF09D", "nid": "3", "vocero": "INCOLMOTOS YAMAHA S.A", "categoria": "BUPA", "subcategoria": "MOTOCICLETAS", "email": "", "codigodepto": "17", "departamento": "CALDAS", "codigomunicipio": "17001", "municipio": "MANIZALES", "direccion": "Carrera  6 No 18 - 06  Av Circunvalar B/ Colon", "latitud": "5.067747", "longitud": "-75.517154" }, { "PartitionKey": "0DEF2E79-37E4-4053-8059-2B0314F245CC", "RowKey": "F50A2A1E-D14A-4C44-AD33-61C4E041E14A", "nid": "4", "vocero": "INCOLMOTOS YAMAHA S.A", "categoria": "BUPA", "subcategoria": "MOTOCICLETAS", "email": "", "codigodepto": "17", "departamento": "CALDAS", "codigomunicipio": "17001", "municipio": "MANIZALES", "direccion": "Calle 47 No  3 - 51", "latitud": "5.068027", "longitud": "-75.520172" }
+                        //  ];
+                        // $scope.puntos = pruebas;
         
                       $scope.$digest()
     
@@ -232,20 +231,20 @@ function obtener_mi_posicion(funcion) {
 
                             } else {
                                 ocultarCargando();
-                                navigator.notification.alert("No fue posible ubicar su posici&oacute;n", function () { }, "Error", "Aceptar");
+                                navigator.notification.alert("No fue posible ubicar su posición", function () { }, "Error", "Aceptar");
                             }
                         } else {
                             ocultarCargando();
-                            navigator.notification.alert("El mapa no se carg&oacute; correctamente. No fue posible localizar su posici&oacute;n.", function () { }, "Error", "Aceptar");
+                            navigator.notification.alert("El mapa no se cargó; correctamente. No fue posible localizar su posición.", function () { }, "Error", "Aceptar");
                         }
                     }
                 } catch (e) {
                     ocultarCargando();
-                    navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localizaci&oacute;n", "Aceptar");
+                    navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localización", "Aceptar");
                 }
             } else {
                 ocultarCargando();
-                navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localizaci&oacute;n", "Aceptar");
+                navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localización", "Aceptar");
             }
         });
     },
@@ -254,25 +253,25 @@ function obtener_mi_posicion(funcion) {
             //$("#debug").append("geolocalizando: error");
             //navigator.notification.alert("OMP: " + error.message, function () { }, "C: " + error.code, "Aceptar");
             if (error.code == error.POSITION_UNAVAILABLE) {
-                navigator.notification.alert("No es posible concretar la acci&oacute;n. Se detectó una  posici&oacute;n inv&aacute;lida", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("No es posible concretar la acción. Se detectó una  posición inválida", function () { }, "Lo sentimos", "Aceptar");
 
             } else if (error.code == error.TIMEOUT) {
-                navigator.notification.alert("Tiempo de espera agotado. No fue posible localizar su  posici&oacute;n.", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("Tiempo de espera agotado. No fue posible localizar su  posición.", function () { }, "Lo sentimos", "Aceptar");
 
             } else if (error.code == error.PERMISSION_DENIED) {
-                navigator.notification.alert("No est&aacute;n disponible la localizaci&oacute;n. Se ha negado el servicio de localizaci&oacute;n.", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("No están disponible la localización. Se ha negado el servicio de localización.", function () { }, "Lo sentimos", "Aceptar");
 
             } else {
-                navigator.notification.alert("No est&aacute;n disponible la localizaci&oacute;n", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("No está disponible la localización", function () { }, "Lo sentimos", "Aceptar");
             }
 
             // $.loading('hide')
             if (Mi_ciudad == '') {
-                navigator.notification.alert("Al parecer el GPS no funciona correctamente. No fue posible localizar su  posici&oacute;n.", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("Al parecer el GPS no funciona correctamente. No fue posible localizar su  posición.", function () { }, "Lo sentimos", "Aceptar");
             }
 
         },
-        { timeout: 15000 });
+        { timeout: 20000 });
     }
 
 	

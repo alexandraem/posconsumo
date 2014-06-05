@@ -38,7 +38,8 @@ ambienteApp.controller( 'CuantoCtrl', ['$scope', '$http', '$location',
 ])
 ambienteApp.controller( 'CuantoCategoriaCtrl', ['$scope', '$http', '$location', '$routeParams',
     function( $scope, $http, $location, $routeParams ) {
-        getPuntajes($routeParams.categoria, function(puntajes){
+        getPuntajes($routeParams.categoria, function (puntajes) {
+            mostrarCargando("Cargando información")
             $scope.puntajes = puntajes
             for (var i = 0; i < _categorias.length; i++) {
                 if(_categorias[i].id == $routeParams.categoria){
@@ -47,6 +48,7 @@ ambienteApp.controller( 'CuantoCategoriaCtrl', ['$scope', '$http', '$location', 
                 }
             }
             $scope.$apply();
+            ocultarCargando();
         })
 
         $scope.calcularValor = function(){
