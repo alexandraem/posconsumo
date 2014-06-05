@@ -203,6 +203,7 @@ function obtener_mi_posicion(funcion) {
                     //                        else 
                    // navigator.notification.alert("Va a comparar la ciudades", function () { }, "Pruebas", "Aceptar");
                     if (Mi_departamento.toUpperCase() != DptDelSelect.toUpperCase() || Mi_ciudad.toUpperCase() != mncDelSelect.toUpperCase()) {
+                        ocultarCargando();
                         navigator.notification.alert("No es posible trazar una ruta porque usted no fue localizado en el mismo municipio del punto seleccionado.", function () { }, "Otro municipio", "Aceptar");
                     }
                     else {
