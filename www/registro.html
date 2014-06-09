@@ -31,12 +31,11 @@
 	<script src="libs/js/angular.min.js"></script>
     <script src="libs/js/angular-route.min.js"></script>
     <script src="libs/js/angular-sanitize.min.js"></script>
-	
-    <!--
+   
     <script type="text/javascript" src="cordova.js"></script>
-    !-->
-
-    <script type="text/javascript" src="js/debug.js"></script>
+   
+     <!--
+    <script type="text/javascript" src="js/debug.js"></script> !-->
 	<script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/registro.js"></script>
     
@@ -99,6 +98,17 @@
 		app.initialize()
         $( document ).ready(function() {
             $("#alertaRegistro").css("display", "none");
+
+            document.addEventListener('deviceready', onDeviceReady, false);
+
+            function onDeviceReady() {
+                document.addEventListener("backbutton", onBackKeyDown, false);
+            }
+
+            function onBackKeyDown() {
+                navigator.app.exitApp();
+            }
+
             configurar_db();
             consultarRegistro();
         });

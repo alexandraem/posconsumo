@@ -28,12 +28,12 @@
 
     <div>
         <div class="big-notification blue-notification">
-            <label class="uppercase" ng-show="cantidad > 0">Si recolectaste {{cantidad}}... </label> <h4 class="uppercase"> ¿Que estás logrando con ésto?</h4>
+            <label class="uppercase" ng-show="cantidad > 0">Si recolectaste {{cantidad}} unidades... </label> <h4 class="uppercase"> ¿Que estás logrando con ésto?</h4>
             <p class="center-text uppercase" ng-show="cantidad >= puntaje.min && cantidad <= puntaje.max" ng-repeat="puntaje in puntajes">
                 {{puntaje.mensaje}}
             </p>
             <p class="center-text uppercase" ng-show="cantidad <= 0">
-                Recicla éstos productos y verás el beneficio que esto genera al mundo
+                Empieza a reciclar estos productos y verás el beneficio que generas en el mundo
             </p>
         </div>
     </div>
