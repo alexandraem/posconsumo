@@ -127,7 +127,7 @@
             <div class="content">
                 <div class="decoration">
                 </div>
-                <ng-view></ng-view>
+                <ng-view id="contVideos"></ng-view>
                 <div class="clear">
                 </div>
             </div>
@@ -138,7 +138,7 @@
         $(document).ready(function () {
 
             touchScroll('menul');
-
+           
             var nombre = localStorage.getItem("NombreRegistro");
             $("#nombreUsuario").text(nombre);
 
@@ -148,6 +148,8 @@
             } else {
                 $("#puntosUsuario").text("0 Puntos");
             }
+
+            touchScroll('contVideos'); 
         });
     </script>
 </body>

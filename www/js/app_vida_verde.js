@@ -15,14 +15,15 @@ ambienteApp.config(function($sceDelegateProvider) {
    ambienteApp.controller('VideosCtrl', ['$scope', '$http', '$location',
     function ($scope, $http, $location) {
         getVideos(function (videos) {
-            //console.log(videos)
-            //for (var i = 0; i > videos.length; i++) {
-            //    console.log("algo " + videos[i].url);
-            //    videos[i].url =  videos[i].url.replace("watch?v=","embed/"); 
-            //};
+            for (var i = 0; i < videos.length; i++) {
+                // console.log("algo " + videos[i].url);
+                if (videos[i].url.indexOf("watch?v=") != -1) {
+                    videos[i].url = videos[i].url.replace("watch?v=", "embed/");
+                }
+            };
 
             $scope.videoLista = videos
-           
+
             $scope.$apply()
         })
     }

@@ -1,4 +1,4 @@
-
+Ôªø
 var geocoder;
 var directionsService;
 var directionsDisplay;
@@ -124,7 +124,7 @@ function mostrar_ruta(){
             } else if (status == google.maps.DirectionsStatus.NOT_FOUND || status == google.maps.DirectionsStatus.ZERO_RESULTS) {
                 navigator.notification.alert("No fue posible calcular la ruta hasta ese destino.", function () { }, "Lo sentimos", "Aceptar");
             } else if (status == google.maps.DirectionsStatus.OVER_QUERY_LIMIT || status == google.maps.DirectionsStatus.REQUEST_DENIED) {
-                navigator.notification.alert("…sta funcionalidad no es posible usarla por el momento. Intente m·s tarde.", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("√âsta funcionalidad no es posible usarla por el momento. Intente m√°s tarde.", function () { }, "Lo sentimos", "Aceptar");
             } else {
                 navigator.notification.alert("No es posible calcular la ruta hasta ese destino.", function () { }, "Lo sentimos", "Aceptar");
             }
@@ -161,9 +161,9 @@ function obtener_mi_posicion(funcion) {
                     var Mi_ciudad = results[results.length - 3].address_components[0].long_name
                     var Mi_departamento = results[results.length - 3].address_components[1].long_name
 
-                    if (Mi_ciudad.toUpperCase() == 'BOGOT¡') {
-                        Mi_departamento = "BOGOT¡ D.C"
-                        Mi_ciudad = 'BOGOT¡ D.C'
+                    if (Mi_ciudad.toUpperCase() == 'BOGOT√Å') {
+                        Mi_departamento = "BOGOT√Å D.C"
+                        Mi_ciudad = 'BOGOT√Å D.C'
                     }
 
                     ////////////////////////////////if solo para pruebas///////////////////////////////////////////////////////////////
@@ -194,10 +194,10 @@ function obtener_mi_posicion(funcion) {
                     //                                    }
 
                     //								}else{
-                    //									navigator.notification.alert("No fue posible ubicar su posiciÛn", function(){}, "Error", "Aceptar");
+                    //									navigator.notification.alert("No fue posible ubicar su posiciÔøΩn", function(){}, "Error", "Aceptar");
                     //								}
                     //							}else{
-                    //								navigator.notification.alert("El mapa no se cargÛ no se puede ubicar mi posiciÛn", function(){}, "Error", "Aceptar");
+                    //								navigator.notification.alert("El mapa no se cargÔøΩ no se puede ubicar mi posiciÔøΩn", function(){}, "Error", "Aceptar");
                     //							}
                     //						}////////////////////////////////////////////////
                     //                        else 
@@ -232,20 +232,20 @@ function obtener_mi_posicion(funcion) {
 
                             } else {
                                 ocultarCargando();
-                                navigator.notification.alert("No fue posible ubicar su posiciÛn", function () { }, "Error", "Aceptar");
+                                navigator.notification.alert("No fue posible ubicar su posici√≥n", function () { }, "Error", "Aceptar");
                             }
                         } else {
                             ocultarCargando();
-                            navigator.notification.alert("El mapa no se cargÛ; correctamente. No fue posible localizar su posiciÛn.", function () { }, "Error", "Aceptar");
+                            navigator.notification.alert("El mapa no se carg√≥ correctamente. No fue posible localizar su posici√≥n.", function () { }, "Error", "Aceptar");
                         }
                     }
                 } catch (e) {
                     ocultarCargando();
-                    navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localizaciÛn", "Aceptar");
+                    navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localizaci√≥n", "Aceptar");
                 }
             } else {
                 ocultarCargando();
-                navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localizaciÛn", "Aceptar");
+                navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localizaci√≥n", "Aceptar");
             }
         });
     },
@@ -254,21 +254,21 @@ function obtener_mi_posicion(funcion) {
             //$("#debug").append("geolocalizando: error");
             //navigator.notification.alert("OMP: " + error.message, function () { }, "C: " + error.code, "Aceptar");
             if (error.code == error.POSITION_UNAVAILABLE) {
-                navigator.notification.alert("No es posible concretar la acciÛn. Se detectÛ una  posiciÛn inv·lida", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("No es posible concretar la acci√≥n. Se detect√≥ una  posici√≥n inv√°lida", function () { }, "Lo sentimos", "Aceptar");
 
             } else if (error.code == error.TIMEOUT) {
-                navigator.notification.alert("Tiempo de espera agotado. No fue posible localizar su  posiciÛn.", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("Tiempo de espera agotado. No fue posible localizar su  posici√≥n.", function () { }, "Lo sentimos", "Aceptar");
 
             } else if (error.code == error.PERMISSION_DENIED) {
-                navigator.notification.alert("No est·n disponible la localizaciÛn. Se ha negado el servicio de localizaciÛn.", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("No est√°n disponible la localizaci√≥n. Se ha negado el servicio de localizaci√≥n.", function () { }, "Lo sentimos", "Aceptar");
 
             } else {
-                navigator.notification.alert("No est· disponible la localizaciÛn", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("No est√° disponible la localizaci√≥n", function () { }, "Lo sentimos", "Aceptar");
             }
 
             // $.loading('hide')
             if (Mi_ciudad == '') {
-                navigator.notification.alert("Al parecer el GPS no funciona correctamente. No fue posible localizar su  posiciÛn.", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("Al parecer el GPS no funciona correctamente. No fue posible localizar su  posici√≥n.", function () { }, "Lo sentimos", "Aceptar");
             }
 
         },
