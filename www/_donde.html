@@ -132,9 +132,6 @@
     <script type="text/javascript">
         app.initialize()
         $(document).ready(function () {
-
-            touchScroll('menul');
-
             var nombre = localStorage.getItem("NombreRegistro");
             $("#nombreUsuario").text(nombre);
 
@@ -145,6 +142,8 @@
                 $("#puntosUsuario").text("0 Puntos");
             }
         });
+
+        touchScroll('menul');
     </script>
 </body>
 </html>

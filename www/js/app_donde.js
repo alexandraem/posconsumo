@@ -92,7 +92,7 @@ ambienteApp.controller( 'LugaresCategoriasCtrl', ['$scope', '$http', '$location'
 
             mostrarCargando("Cargando puntos de recolección");
             $.getJSON(
-                "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/puntosposconsumo?$filter=codigodepto%20EQ%20'" + CodDpto + "'%20and%20codigomunicipio%20EQ%20'" + CodMnpio + "'%20and%20categoria%20EQ%20'" + $routeParams.categoria + "'&$format=json",
+                "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/posconsumocoordenadasconsolidado6?$filter=codigodepto%20EQ%20'" + CodDpto + "'%20and%20codigomunicipio%20EQ%20'" + CodMnpio + "'%20and%20categoria%20EQ%20'" + $routeParams.categoria + "'&$format=json",
                 function (data, textStatus, jqXHR) {
                     console.log(data)
                     var lugares = []

@@ -64,7 +64,7 @@ ambienteApp.config( ['$routeProvider', '$locationProvider',
 
 function getCampania( id , success){
     $.getJSON(
-        "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/campanas?$filter=nid%20EQ%20+"+id+"+&$format=json",
+        "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/campanas3?$filter=nid%20EQ%20+" + id + "+&$format=json",
         function(data, textStatus, jqXHR){
             var campanias = data.d
             var encontrado = false
@@ -86,7 +86,7 @@ function getCampania( id , success){
 
 function getCampanias( success ){
     $.getJSON(
-        'http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/campanas?$format=json',
+        'http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/campanas3?$format=json',
         function(data, textStatus, jqXHR){
             console.log(data);
             success(data.d)

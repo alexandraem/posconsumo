@@ -41,12 +41,12 @@ ambienteApp.controller( 'CuantoCategoriaCtrl', ['$scope', '$http', '$location', 
         getPuntajes($routeParams.categoria, function (puntajes) {
             mostrarCargando("Cargando información")
             $scope.puntajes = puntajes
-            for (var i = 0; i < _categorias.length; i++) {
-                if(_categorias[i].id == $routeParams.categoria){
-                    $scope.categoria = _categorias[i]
-                    break;
-                }
-            }
+//            for (var i = 0; i < _categorias.length; i++) {
+//                if(_categorias[i].id == $routeParams.categoria){
+//                    $scope.categoria = _categorias[i]
+//                    break;
+//                }
+//            }
             $scope.$apply();
             ocultarCargando();
         })
@@ -89,11 +89,11 @@ ambienteApp.config( ['$routeProvider', '$locationProvider',
 
 function getPuntajes( categoria, success ){
     $.getJSON(
-        "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/cuantoayudo?$filter=categoria%20EQ%20'"+categoria+"'&$format=json",
-        function(data, textStatus, jqXHR){
+    "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/cuantoayudo3?$filter=categoria%20EQ%20'" + categoria + "'&$format=json",
+        function (data, textStatus, jqXHR) {
             var puntajes_final = []
             for (var i = 0; i < data.d.length; i++) {
-                if(data.d[i].categoria == categoria){
+                if (data.d[i].categoria.toUpperCase() == categoria.toUpperCase()) {
                     puntajes_final.push(data.d[i])
                 }
             }

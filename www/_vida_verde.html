@@ -28,7 +28,6 @@
     <script src="libs/js/angular-sanitize.min.js"></script>
     <script type="text/javascript" src="js/app_vida_verde.js"></script>
     <script src="js/back.js" type="text/javascript"></script>
-     <script src="libs/js/touchscroll.js" type="text/javascript"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <!--<script type="text/javascript" src="js/debug.js"></script> !-->
     <script type="text/javascript" src="js/app.js"></script>
@@ -124,16 +123,19 @@
                 </div>
                 <img class="responsive-image" src="img/vidaverde.jpg" alt="img">
             </div>
-            <div class="content">
+            <div id="scaqui" class="content">
                 <div class="decoration">
                 </div>
-                <ng-view id="contVideos"></ng-view>
+                <ng-view></ng-view>
                 <div class="clear">
                 </div>
             </div>
         </div>
     </div>
+    
+    <script src="libs/js/touchscroll.js" type="text/javascript"></script>
     <script type="text/javascript">
+        touchScroll('content'); 
         app.initialize()
         $(document).ready(function () {
 
@@ -149,8 +151,9 @@
                 $("#puntosUsuario").text("0 Puntos");
             }
 
-            touchScroll('contVideos'); 
+            touchScroll('content'); 
         });
+       
     </script>
 </body>
 </html>

@@ -548,3 +548,10 @@ display: none;
     }
 }
 
+@media (max-height: 400px){
+    .responsive-video{
+        height: 150px !important;
+        border: 2px solid #CCC;
+    }
+}
+
