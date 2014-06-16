@@ -228,6 +228,8 @@ Porque despues de usar, hay que colectar
             } else {
                 $("#puntosUsuario").text("0 Puntos");
             }
+            sessionStorage.setItem("deptSeleccionado", "");
+            sessionStorage.setItem("muniSeleccionado", "");
 
             document.addEventListener('deviceready', onDeviceReady, false);
 

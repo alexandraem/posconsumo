@@ -43,9 +43,15 @@ var app = {
         if (app.checkConnection()) {
             $("body").removeClass("no-internet")
             app.with_internet = true
+            var seFueInternet = localStorage.getItem("seFueInternet");
+            if (seFueInternet == "si") {
+                localStorage.setItem("seFueInternet", "no");
+                window.location.href = "index.html";
+            } 
         } else {
             $("body").addClass("no-internet")
             app.with_internet = false
+            localStorage.setItem("seFueInternet", "si");
         }
     },
     // Devuelve si hay o no conexión a internet
@@ -63,8 +69,6 @@ var app = {
         }
     }
 };
-
-
 
 
 function openLinkInBrowser(url){

@@ -74,6 +74,8 @@
     <preference name="Fullscreen" value="false" />
     <preference name="backgroundColor" value="0xffdddddd" />
     <preference name="keepRunning " value="true" />
+
+    <preference name="StatusBarOverlaysWebView" value="false" />
     <!-- <preference name="loadingDialog" value="Espere por favor" /> -->
 
 
@@ -107,6 +109,7 @@
     <gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
     <gap:plugin name="org.apache.cordova.dialogs" version="0.2.6" />
     <gap:plugin name="nl.x-services.plugins.socialsharing" version="4.0.8" />
+    <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
 
     <access origin="*" />
 

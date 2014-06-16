@@ -379,6 +379,23 @@ body .button{
     text-align:center;
     }
 
+
+#preloader
+{
+    z-index: 997;
+    }
+    
+#content-section-campa
+{
+    margin-bottom: 4px;
+    }
+    
+.btnRgisCamp
+{
+ font-size: 14px !important;
+margin-top: 20px;   
+    }
+
 /*********Pruebas sin internet*********************/
 #sinInternet{
 position: fixed;
@@ -391,6 +408,7 @@ background: rgba(0,0,0,0.9);
 text-align: center;
 color: #fff;
 padding-top: 25%;
+z-index: 999;
 display: none;
 }
 
@@ -446,14 +464,14 @@ display: none;
     right: 0;
     bottom: 0;
     background-color: #FFF;
-    z-index: 999999;
+    z-index: 998;
     font-size:100%;
     display: none;
 }
 
 #cargandostatus{
     position: fixed;
-    z-index: 999999;
+    z-index: 998;
     width: 250px;
     height: 250px;
     position: absolute;
@@ -467,7 +485,6 @@ display: none;
     font-size: 100%;
 }
 /*********************************************************/
-
 
 @media (min-width: 760px){
     .menuPrincipal>.one-half-responsive{
@@ -548,10 +565,11 @@ display: none;
     }
 }
 
+/*
 @media (max-height: 400px){
     .responsive-video{
         height: 150px !important;
-        border: 2px solid #CCC;
+        border: 4px solid #27E1EB;
     }
-}
+}*/
 

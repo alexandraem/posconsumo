@@ -68,6 +68,19 @@
     </div>
     <script type="text/javascript">
         app.initialize()
+        $(document).ready(function () {
+            if (sessionStorage.getItem("dpSelect") != null && sessionStorage.getItem("dpSelect") != "") {
+                sessionStorage.setItem("deptSeleccionado", sessionStorage.getItem("dpSelect"));
+            } else {
+                sessionStorage.setItem("deptSeleccionado", "");
+            }
+
+            if (sessionStorage.getItem("mnSelect") != null && sessionStorage.getItem("mnSelect") != "") {
+                sessionStorage.setItem("muniSeleccionado", sessionStorage.getItem("mnSelect"));
+            } else {
+                sessionStorage.setItem("muniSeleccionado", "");
+            }
+        });
        
     </script>
 </body>

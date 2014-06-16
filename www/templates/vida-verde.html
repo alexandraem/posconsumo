@@ -1,6 +1,7 @@
 <div ng-repeat="video in videoLista">
-    <div class="portfolio-item-full-width">
-        <iframe class="responsive-video" src="{{video.url}}"></iframe>
+    <div class="portfolio-item-full-width" ng-show="video.ok" ng-click="video_click( video.url )">
+       <!-- <iframe class="responsive-video" src="{{video.url}}"></iframe>-->
+       <img class="responsive-image" ng-src="{{video.th}}" alt="img">
         <h4>
             {{video.titulo}}</h4>
         <p>

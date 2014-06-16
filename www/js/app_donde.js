@@ -41,25 +41,22 @@ ambienteApp.controller( 'LugaresCategoriasCtrl', ['$scope', '$http', '$location'
 
         $scope.state = "Cargando departamentos..."
 
-      //  var conect = app.checkConnection();
-
-       // alert(conect);
-
-       // if (conect) {
-            mostrarCargando("Cargando departamentos")
-            getDeptos(function (departamentos) {
-                console.log("departamento");
-                $scope.departs = departamentos
-                if ($scope.departs.length > 0) {
+        mostrarCargando("Cargando departamentos")
+        getDeptos(function (departamentos) {
+            $scope.departs = departamentos
+            if ($scope.departs.length > 0) {
+                if (sessionStorage.getItem("deptSeleccionado") != null && sessionStorage.getItem("deptSeleccionado") != "") {
+                    $scope.deptoSel = sessionStorage.getItem("deptSeleccionado");
+                } else {
                     //deptoSel se crea en el select en el html
                     $scope.deptoSel = $scope.departs[0].codigo
                 }
-                $scope.state = ""
-                $scope.$apply()
-                ocultarCargando();
-                $scope.cargarMunicipios();
-            })
-      //  }
+            }
+            $scope.state = ""
+            $scope.$apply()
+            ocultarCargando();
+            $scope.cargarMunicipios();
+        })
 
         $scope.cargarMunicipios = function () {
 
@@ -75,12 +72,23 @@ ambienteApp.controller( 'LugaresCategoriasCtrl', ['$scope', '$http', '$location'
                     }
                     $scope.municipios = mnpios;
                     if ($scope.municipios.length > 0) {
-                        $scope.munSel = $scope.municipios[0].codigomunicipio
+                        console.log($scope.municipios.length);
+                        if (sessionStorage.getItem("muniSeleccionado") != null && sessionStorage.getItem("muniSeleccionado") != "") {
+                            $scope.munSel = sessionStorage.getItem("muniSeleccionado");
+                        } else {
+                            $scope.munSel = $scope.municipios[0].codigomunicipio
+                        }
                     }
                     $scope.state = ""
                     $scope.$digest()
                     ocultarCargando();
                 })
+        }
+
+        $scope.cargarMuniciChange = function () {
+            sessionStorage.setItem("muniSeleccionado", "");
+            $scope.cargarMunicipios();
+
         }
 
 
@@ -138,10 +146,6 @@ ambienteApp.config( ['$routeProvider', '$locationProvider',
 ///////////////////////////////// CONSULTAS AL SET DE DATOS
 
 function getDeptos(success) {
-//    var conex = app.checkConnection();
-
-//    if (conex) {
-
         $.getJSON(
         'http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/lugarespuntos01?$format=json',
         function (data, textStatus, jqXHR) {
@@ -165,7 +169,6 @@ function getDeptos(success) {
             }
             success(dptos)
         })
-    //}
 }
 
 function Volver() {

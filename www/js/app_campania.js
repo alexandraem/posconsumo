@@ -92,3 +92,7 @@ function getCampanias( success ){
             success(data.d)
         })
     }
+
+    function Volver() {
+        window.location.href = "_campanias.html";
+    }

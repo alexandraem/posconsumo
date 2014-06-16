@@ -15,7 +15,7 @@ function isTouchDevice(){
 }
 
 function touchScroll(id) {
-    alert(id);
+   // alert(id);
 	if(isTouchDevice()){ //if touch events exist...
 		var el = document.getElementById(id);
 
