@@ -125,7 +125,7 @@ ambienteApp.config( ['$routeProvider', '$locationProvider',
 
 function getPreguntas( success ){
     $.getJSON(
-        'http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/datosminambientepregrecpostconsumo?$format=json',
+        'http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/pregrecpostconsumo?$format=json',
         function(data, textStatus, jqXHR){
             success(data.d)
         })

@@ -38,6 +38,7 @@ ambienteApp.controller( 'LugaresCategoriasCtrl', ['$scope', '$http', '$location'
 
     ambienteApp.controller('LugaresCtrl', ['$scope', '$http', '$location', '$routeParams',
     function ($scope, $http, $location, $routeParams) {
+        $scope.categoria = $routeParams.categoria
 
         $scope.state = "Cargando departamentos..."
 
@@ -72,7 +73,7 @@ ambienteApp.controller( 'LugaresCategoriasCtrl', ['$scope', '$http', '$location'
                     }
                     $scope.municipios = mnpios;
                     if ($scope.municipios.length > 0) {
-                        console.log($scope.municipios.length);
+                        //console.log($scope.municipios.length);
                         if (sessionStorage.getItem("muniSeleccionado") != null && sessionStorage.getItem("muniSeleccionado") != "") {
                             $scope.munSel = sessionStorage.getItem("muniSeleccionado");
                         } else {
@@ -96,13 +97,13 @@ ambienteApp.controller( 'LugaresCategoriasCtrl', ['$scope', '$http', '$location'
             $scope.state = "Cargando puntos de recolección..."
             var CodDpto = $scope.deptoSel;
             var CodMnpio = $scope.munSel;
-            console.log("categoria =" + $routeParams.categoria)
+            //console.log("categoria =" + $routeParams.categoria)
 
             mostrarCargando("Cargando puntos de recolección");
             $.getJSON(
-                "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/posconsumocoordenadasconsolidado6?$filter=codigodepto%20EQ%20'" + CodDpto + "'%20and%20codigomunicipio%20EQ%20'" + CodMnpio + "'%20and%20categoria%20EQ%20'" + $routeParams.categoria + "'&$format=json",
+                "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/puntosposconsumo?$filter=codigodepto%20EQ%20'" + CodDpto + "'%20and%20codigomunicipio%20EQ%20'" + CodMnpio + "'%20and%20categoria%20EQ%20'" + $routeParams.categoria + "'&$format=json",
                 function (data, textStatus, jqXHR) {
-                    console.log(data)
+                    //console.log(data)
                     var lugares = []
                     for (var i = 0; i < data.d.length; i++) {
                         lugares.push(data.d[i])

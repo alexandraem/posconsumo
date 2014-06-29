@@ -46,7 +46,8 @@ ambienteApp.controller( 'CuantoCategoriaCtrl', ['$scope', '$http', '$location', 
 //                    $scope.categoria = _categorias[i]
 //                    break;
 //                }
-//            }
+            //            }
+            $scope.categoria = puntajes[0].categoria
             $scope.$apply();
             ocultarCargando();
         })
@@ -89,7 +90,7 @@ ambienteApp.config( ['$routeProvider', '$locationProvider',
 
 function getPuntajes( categoria, success ){
     $.getJSON(
-    "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/cuantoayudo3?$filter=categoria%20EQ%20'" + categoria + "'&$format=json",
+    "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/cuantoayudo?$filter=categoria%20EQ%20'" + categoria + "'&$format=json",
         function (data, textStatus, jqXHR) {
             var puntajes_final = []
             for (var i = 0; i < data.d.length; i++) {
@@ -99,5 +100,9 @@ function getPuntajes( categoria, success ){
             }
             success(puntajes_final)
         })
-}
+    }
+
+    function Volver() {
+        window.location.href = "_cuanto.html";
+    }
 

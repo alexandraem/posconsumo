@@ -395,6 +395,16 @@ body .button{
  font-size: 14px !important;
 margin-top: 20px;   
     }
+    
+#lblCat{
+    font-size: 17px;
+    color: #000;
+    margin-top: 20px;
+    left: 20px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 10px;
+}
 
 /*********Pruebas sin internet*********************/
 #sinInternet{

@@ -84,7 +84,7 @@
             <div class="content ppalRegistro">
                 <h4 class="center-text" id="subTitHome">Actualización</h4>
                 <label id="titActualizar">Escriba su nombre</label>
-                <input type="text" id="txtRegistro" placeholder="Escriba su nombre" value="" maxlength="28"></input>
+                <input type="text" id="txtRegistro" placeholder="Escriba su nombre" value="" maxlength="28" onclick="limpiar()"></input>
                 <label id="alertaRegistro">Puede actualizar su nombre más tarde</label>
             <p class="center-text">
                 <button class="button button-green btnRgis" onclick="GuardarNom()">Guardar</button>
@@ -100,9 +100,7 @@
 		app.initialize()
         $( document ).ready(function() {
             $("#alertaRegistro").css("display", "none");
-
             
-
             configurar_db();
             consultarRegistro();
         });

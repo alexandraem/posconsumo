@@ -90,3 +90,7 @@ function MasTarde() {
 function redireccionar(tx, results) {
     redireccionarIndex();
 }
+
+function limpiar() {
+    $("#txtRegistro").val("");
+}
