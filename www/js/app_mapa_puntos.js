@@ -141,135 +141,135 @@ function obtener_mi_posicion(funcion) {
     //$("#debug").append("<br> Despues del geocoder")
 
 	mostrarCargando("Geolocalizando mi posici&oacute;n");
-    navigator.geolocation.getCurrentPosition(function (position) {
-        ocultarCargando();
-        var scope = angular.element(document.getElementById('content-map')).scope();
-        var lat = position.coords.latitude
-        var lon = position.coords.longitude
+	navigator.geolocation.getCurrentPosition(function (position) {
+	    ocultarCargando();
+	    var scope = angular.element(document.getElementById('content-map')).scope();
+	    var lat = position.coords.latitude
+	    var lon = position.coords.longitude
 
-       // $("#debug").append("<br> Responde obtener_mi_posicion")
+	    // $("#debug").append("<br> Responde obtener_mi_posicion")
 
-        var point = new google.maps.LatLng(lat, lon)
+	    var point = new google.maps.LatLng(lat, lon)
 
-        mostrarCargando("Obteniendo mi ciudad");
-        geocoder.geocode({ 'latLng': point }, function (results, status) {
-           // $("#debug").append("<br> Geocoder responde")
-            ocultarCargando();
-            if (status == google.maps.GeocoderStatus.OK) {
-                try {
-                    mostrarCargando("Ciudad obtenida");
-                    var Mi_ciudad = results[results.length - 3].address_components[0].long_name
-                    var Mi_departamento = results[results.length - 3].address_components[1].long_name
+	    mostrarCargando("Obteniendo mi ciudad");
+	    geocoder.geocode({ 'latLng': point }, function (results, status) {
+	        // $("#debug").append("<br> Geocoder responde")
+	        ocultarCargando();
+	        if (status == google.maps.GeocoderStatus.OK) {
+	            try {
+	                mostrarCargando("Ciudad obtenida");
+	                var Mi_ciudad = results[results.length - 3].address_components[0].long_name
+	                var Mi_departamento = results[results.length - 3].address_components[1].long_name
 
-                    if (Mi_ciudad.toUpperCase() == 'BOGOTÁ') {
-                        Mi_departamento = "BOGOTÁ D.C"
-                        Mi_ciudad = 'BOGOTÁ D.C'
-                    }
+	                if (Mi_ciudad.toUpperCase() == 'BOGOTÁ') {
+	                    Mi_departamento = 'BOGOTÁ D.C.'
+	                    Mi_ciudad = 'BOGOTÁ D.C.'
+	                }
 
-                    ////////////////////////////////if solo para pruebas///////////////////////////////////////////////////////////////
-                    //						if(Mi_departamento.toUpperCase() == "CALDAS" && Mi_ciudad.toUpperCase() == "MANIZALES"){
-                    //							//ubicarme();
-                    //							
-                    //							if(scope.map != null){
-                    //									console.log("en ubicarme");
-                    //								if(lat != null && lon != null){
-                    //									console.log("lat scope: "+lat);
-                    //									var point = new google.maps.LatLng(lat, lon)
-                    //									var marker = new google.maps.Marker({
-                    //										position: point,
-                    //										title:"Yo!",
-                    //										icon: pin_persona
-                    //									});
-                    //									
-                    //									if(markerPersona != null){
-                    //										markerPersona.setMap(null)
-                    //									}
-                    //									markerPersona = marker
-                    //									marker.setMap( scope.map )
-                    //									scope.map.setCenter( point )
+	                ////////////////////////////////if solo para pruebas///////////////////////////////////////////////////////////////
+	                //						if(Mi_departamento.toUpperCase() == "CALDAS" && Mi_ciudad.toUpperCase() == "MANIZALES"){
+	                //							//ubicarme();
+	                //							
+	                //							if(scope.map != null){
+	                //									console.log("en ubicarme");
+	                //								if(lat != null && lon != null){
+	                //									console.log("lat scope: "+lat);
+	                //									var point = new google.maps.LatLng(lat, lon)
+	                //									var marker = new google.maps.Marker({
+	                //										position: point,
+	                //										title:"Yo!",
+	                //										icon: pin_persona
+	                //									});
+	                //									
+	                //									if(markerPersona != null){
+	                //										markerPersona.setMap(null)
+	                //									}
+	                //									markerPersona = marker
+	                //									marker.setMap( scope.map )
+	                //									scope.map.setCenter( point )
 
-                    //                                    if(funcion!=undefined){
-                    //                                        console.log( "comenzar a mostra la ruta" )
-                    //                                        funcion( {"lat": lat, "lon": lon} )
-                    //                                    }
+	                //                                    if(funcion!=undefined){
+	                //                                        console.log( "comenzar a mostra la ruta" )
+	                //                                        funcion( {"lat": lat, "lon": lon} )
+	                //                                    }
 
-                    //								}else{
-                    //									navigator.notification.alert("No fue posible ubicar su posici�n", function(){}, "Error", "Aceptar");
-                    //								}
-                    //							}else{
-                    //								navigator.notification.alert("El mapa no se carg� no se puede ubicar mi posici�n", function(){}, "Error", "Aceptar");
-                    //							}
-                    //						}////////////////////////////////////////////////
-                    //                        else 
-                   // navigator.notification.alert("Va a comparar la ciudades", function () { }, "Pruebas", "Aceptar");
-                    if (Mi_departamento.toUpperCase() != DptDelSelect.toUpperCase() || Mi_ciudad.toUpperCase() != mncDelSelect.toUpperCase()) {
-                        ocultarCargando();
-                        navigator.notification.alert("No es posible trazar una ruta porque usted no fue localizado en el mismo municipio del punto seleccionado.", function () { }, "Otro municipio", "Aceptar");
-                    }
-                    else {
-                        if (scope.map != null) {
-                            if (lat != null && lon != null) {
-                                //console.log("lat scope: " + lat);
-                                var point = new google.maps.LatLng(lat, lon)
-                                var marker = new google.maps.Marker({
-                                    position: point,
-                                    title: "Yo!",
-                                    icon: pin_persona
-                                });
+	                //								}else{
+	                //									navigator.notification.alert("No fue posible ubicar su posici�n", function(){}, "Error", "Aceptar");
+	                //								}
+	                //							}else{
+	                //								navigator.notification.alert("El mapa no se carg� no se puede ubicar mi posici�n", function(){}, "Error", "Aceptar");
+	                //							}
+	                //						}////////////////////////////////////////////////
+	                //                        else 
+	                // navigator.notification.alert("Va a comparar la ciudades", function () { }, "Pruebas", "Aceptar");
+	                if (Mi_departamento.toUpperCase() != DptDelSelect.toUpperCase() || Mi_ciudad.toUpperCase() != mncDelSelect.toUpperCase()) {
+	                    ocultarCargando();
+	                    navigator.notification.alert("No es posible trazar una ruta porque usted no fue localizado en el mismo municipio del punto seleccionado. Ubicado en " + Mi_ciudad, function () { }, "Otro municipio", "Aceptar");
+	                }
+	                else {
+	                    if (scope.map != null) {
+	                        if (lat != null && lon != null) {
+	                            //console.log("lat scope: " + lat);
+	                            var point = new google.maps.LatLng(lat, lon)
+	                            var marker = new google.maps.Marker({
+	                                position: point,
+	                                title: "Yo!",
+	                                icon: pin_persona
+	                            });
 
-                                if (markerPersona != null) {
-                                    markerPersona.setMap(null)
-                                }
-                                markerPersona = marker
-                                marker.setMap(scope.map)
-                                scope.map.setCenter(point)
+	                            if (markerPersona != null) {
+	                                markerPersona.setMap(null)
+	                            }
+	                            markerPersona = marker
+	                            marker.setMap(scope.map)
+	                            scope.map.setCenter(point)
 
-                                ocultarCargando();
-                                if (funcion != undefined) {
-                                    funcion({ "lat": lat, "lon": lon })
-                                }
+	                            ocultarCargando();
+	                            if (funcion != undefined) {
+	                                funcion({ "lat": lat, "lon": lon })
+	                            }
 
 
-                            } else {
-                                ocultarCargando();
-                                navigator.notification.alert("No fue posible ubicar su posición", function () { }, "Error", "Aceptar");
-                            }
-                        } else {
-                            ocultarCargando();
-                            navigator.notification.alert("El mapa no se cargó correctamente. No fue posible localizar su posición.", function () { }, "Error", "Aceptar");
-                        }
-                    }
-                } catch (e) {
-                    ocultarCargando();
-                    navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localización", "Aceptar");
-                }
-            } else {
-                ocultarCargando();
-                navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localización", "Aceptar");
-            }
-        });
-    },
+	                        } else {
+	                            ocultarCargando();
+	                            navigator.notification.alert("No fue posible ubicar su posición", function () { }, "Error", "Aceptar");
+	                        }
+	                    } else {
+	                        ocultarCargando();
+	                        navigator.notification.alert("El mapa no se cargó correctamente. No fue posible localizar su posición.", function () { }, "Error", "Aceptar");
+	                    }
+	                }
+	            } catch (e) {
+	                ocultarCargando();
+	                navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localización", "Aceptar");
+	            }
+	        } else {
+	            ocultarCargando();
+	            navigator.notification.alert("No pudimos localizar su ciudad.", function () { }, "Sin localización", "Aceptar");
+	        }
+	    });
+	},
         function (error) {
             ocultarCargando();
             //$("#debug").append("geolocalizando: error");
             //navigator.notification.alert("OMP: " + error.message, function () { }, "C: " + error.code, "Aceptar");
             if (error.code == error.POSITION_UNAVAILABLE) {
-                navigator.notification.alert("No es posible concretar la acción. Se detectó una  posición inválida", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("No fue posible geolocalizar su posición.", function () { }, "Lo sentimos", "Aceptar");
 
             } else if (error.code == error.TIMEOUT) {
-                navigator.notification.alert("Tiempo de espera agotado. No fue posible localizar su  posición.", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("Tiempo de espera agotado. No fue posible localizar su posición.", function () { }, "Lo sentimos", "Aceptar");
 
             } else if (error.code == error.PERMISSION_DENIED) {
-                navigator.notification.alert("No están disponible la localización. Se ha negado el servicio de localización.", function () { }, "Lo sentimos", "Aceptar");
+                navigator.notification.alert("No está disponible la localización. Se ha negado el servicio de localización.", function () { }, "Lo sentimos", "Aceptar");
 
             } else {
                 navigator.notification.alert("No está disponible la localización", function () { }, "Lo sentimos", "Aceptar");
             }
 
             // $.loading('hide')
-            if (Mi_ciudad == '') {
-                navigator.notification.alert("Al parecer el GPS no funciona correctamente. No fue posible localizar su  posición.", function () { }, "Lo sentimos", "Aceptar");
-            }
+            //            if (Mi_ciudad == '') {
+            //                navigator.notification.alert("Al parecer el GPS no funciona correctamente. No fue posible localizar su  posición.", function () { }, "Lo sentimos", "Aceptar");
+            //            }
 
         },
         { timeout: 20000 });
