@@ -272,7 +272,9 @@ function obtener_mi_posicion(funcion) {
             //            }
 
         },
-        { timeout: 20000 });
+        { timeout: 30000 });
     }
 
-	
+    function Volver() {
+        window.location.href = "_donde.html#/lugares-" + sessionStorage.getItem("ctSelect");
+    }
