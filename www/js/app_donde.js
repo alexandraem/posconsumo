@@ -168,7 +168,21 @@ function getDeptos(success) {
                     dptos.push(object)
                 }
             }
-            success(dptos)
+            
+            $.getJSON(
+            'http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/lugarespuntos01?$skip=1000&$format=json',
+            function (data, textStatus, jqXHR) {
+                for (var i = 0; i < data.d.length; i++) {
+                    if (dptos.myIndexOf(data.d[i].codigodepartamento) == -1) {
+                        var object = new Object();
+                        object.codigo = data.d[i].codigodepartamento;
+                        object.nombre = data.d[i].nombredepartamento;
+
+                        dptos.push(object)
+                    }
+                }
+                success(dptos)
+             })
         })
 }
 

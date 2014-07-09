@@ -73,12 +73,12 @@ body .button{
     text-align: center;
 }
 #contador img{
-    width: 35px;
+    width: 45px;
     display: inline-block;
     margin: 0 auto;
 }
 #contador .cantidad{
-    font-size: 25px;
+    font-size: 30px;
     font-weight: bold;
     line-height: 25px;
     padding: 10px 0;
