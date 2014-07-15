@@ -12,7 +12,7 @@
     <ul class="icon-list">
         <li class="calendar-list">{{campain.fecha}}</li>
         <li class="flag-list">{{campain.lugar}} - {{campain.ciudad}}</li>
-        <li class="info-list"><a onclick="openLinkInBrowser({{campain.informacion}})">{{campain.informacion}}</a></li>
+        <li class="info-list"><a id="linkIr" onclick="openLinkInBrow($('#linkIr').text())">{{campain.informacion}}</a></li>
     </ul>
 </div>
 

@@ -68,7 +68,7 @@ function getCampania( id , success){
         function(data, textStatus, jqXHR){
             var campanias = data.d
             var encontrado = false
-            console.log(campanias);
+            //console.log(campanias);
             for (var i = 0; i < campanias.length; i++) {
                 if ( campanias[i].nid == id ){
                     success( campanias[i] )
@@ -88,7 +88,7 @@ function getCampanias( success ){
     $.getJSON(
         'http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Ambiente/campanas?$format=json',
         function(data, textStatus, jqXHR){
-            console.log(data);
+           //console.log(data);
             success(data.d)
         })
     }
@@ -97,11 +97,16 @@ function getCampanias( success ){
         window.location.href = "_campanias.html";
     }
 
-    function openLinkInBrowser(url) {
-        if (navigator != undefined && navigator.app != undefined && navigator.app.loadUrl != undefined) {
-            navigator.app.loadUrl(url, { openExternal: true });
-        } else {
-            window.open(url, "_system");
-        }
-
+    function openLinkInBrow(url) {
+//        console.log(url);
+//        var newUrl = encodeURI(url)
+//        console.log(newUrl);
+//        if (navigator != undefined && navigator.app != undefined && navigator.app.loadUrl != undefined) 
+//        {
+//            navigator.app.loadUrl(newUrl, { openExternal: true });
+//        }
+//        else
+//        {
+            window.open(encodeURI(url), '_system');
+//        }
     }

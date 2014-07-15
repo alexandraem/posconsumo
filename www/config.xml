@@ -54,9 +54,18 @@
         <param name="ios-package" value="CDVConnection" />
     </feature>
 
+    <feature name="InAppBrowser">
+       <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+
+    <feature name="InAppBrowser">
+      <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
 
 
-    <preference name="orientation" value="portrait" />
+
+
+  <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
     <preference name="prerendered-icon" value="true" />
     <preference name="stay-in-webview" value="false" />
@@ -111,6 +120,7 @@
     <gap:plugin name="nl.x-services.plugins.socialsharing" version="4.0.8" />
     <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
     <gap:plugin name="org.apache.cordova.geolocation" version="0.3.7" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.3.3" />
 
     <access origin="*" />
 
