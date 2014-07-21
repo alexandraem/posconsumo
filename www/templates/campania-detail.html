@@ -1,28 +1,33 @@
 <div class="btnVolver">
-    <button class="button button-green btnRgisCamp" onclick="Volver()">Volver</button>
+    <button class="button button-green btnRgisCamp" onclick="Volver()">
+        Volver</button>
 </div>
 <div class="decoration">
-                </div>
-<div>
-    <img class="responsive-image" src="{{campain.imagen}}" alt="img">
-    <h4>{{campain.nombre}}</h4>
-    <p>{{campain.descripcion}}</p>
-    <p><strong>Logro: </strong>{{campain.logro}}</p>
-    <p><strong>Meta: </strong>{{campain.meta}}</p>
+</div>
+<div class="divEspacioBlanco">
+    <img class="responsive-image imgEspacioBlanco" src="{{campain.imagen}}" alt="img">
+    <h4>
+        {{campain.nombre}}</h4>
+    <p>
+        {{campain.descripcion}}</p>
+    <p>
+        <strong>Logro: </strong>{{campain.logro}}</p>
+    <p>
+        <strong>Meta: </strong>{{campain.meta}}</p>
     <ul class="icon-list">
         <li class="calendar-list">{{campain.fecha}}</li>
         <li class="flag-list">{{campain.lugar}} - {{campain.ciudad}}</li>
         <li class="info-list"><a id="linkIr" onclick="openLinkInBrow($('#linkIr').text())">{{campain.informacion}}</a></li>
     </ul>
 </div>
-
 <div class="content center-text">
-    <h4 class="center-text">Compártelo</h4>
-   <!-- <button class="button button-blue" ng-click="CompartirFB( campain.informacion )"><span>Facebook</span></button>
+    <h4 class="center-text">
+        Compártelo</h4>
+    <!-- <button class="button button-blue" ng-click="CompartirFB( campain.informacion )"><span>Facebook</span></button>
 
     <button class="button button-blue" ng-click="CompartirTW( campain.informacion )"><span>Twitter</span></button>-->
-
-    <button class="button button-blue" ng-click="compartir()">Compartir</button>
-
+    <button class="button button-blue" ng-click="compartir()">
+        Compartir</button>
 </div>
-<div class="decoration"></div>
+<div class="decoration">
+</div>

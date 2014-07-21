@@ -27,12 +27,12 @@
     <script src="libs/js/angular-route.min.js"></script>
     <script src="libs/js/angular-sanitize.min.js"></script>
     <script src="libs/js/touchscroll.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/registro.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <!-- 
     <script type="text/javascript" src="js/debug.js"></script>
       !-->
     <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/registro.js"></script>
 </head>
 <body>
     <div id="sinInternet2">
@@ -107,111 +107,95 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!--
-COLECTAPP
-Porque despues de usar, hay que colectar
--->
-    <div id="content" class="page-content">
-        <!--<div class="content-controls" id="encHome">
-			    <a href="#" class="deploy-sidebar"></a>
-                <em class="content-title"></em>
-                <div class="divLogosEnc">
-				    <img class="logosEnc" src="img/Picture1.jpg" alt="">
+        <!--  </div>-->
+        <div id="content" class="page-content">
+            <div class="content-controls" id="encHome">
+                <a href="#" class="deploy-sidebar"></a><em class="content-title" id="titleHome">
+                </em>
+                <div class="divImgLogos">
+                    <img class="imgLogos" src="img/Picture1Min.jpg" alt="">
+                    <img class="imgLogos" src="img/Picture1Pros.jpg" alt="">
                 </div>
-			</div>-->
-        <div class="content-controls" id="encHome">
-            <a href="#" class="deploy-sidebar"></a><em class="content-title" id="titleHome">
-            </em>
-            <div class="divImgLogos">
-                <img class="imgLogos" src="img/Picture1Min.jpg" alt="">
-                <img class="imgLogos" src="img/Picture1Pros.jpg" alt="">
             </div>
-        </div>
-        <div class="homepage-slider">
-            <div class="container no-bottom">
-                <div class="slider-controls" id="contBanner">
-                    <div>
-                        <img src="img/prin/algo.jpg" class="responsive-image">
-                    </div>
-                    <div>
-                        <img src="img/prin/valor.jpg" class="responsive-image">
-                    </div>
-                    <!-- <div>
-                            <img src="img/prin/prin1.jpg" class="responsive-image">
+            <div class="homepage-slider">
+                <div class="container no-bottom">
+                    <div class="slider-controls" id="contBanner">
+                        <div>
+                            <img src="img/prin/banner1.jpg" class="responsive-image">
                         </div>
                         <div>
-                            <img src="img/prin/Sustentable.jpg" class="responsive-image">
-                        </div>-->
+                            <img src="img/prin/banner2.jpg" class="responsive-image">
+                        </div>
+                        <div>
+                            <img src="img/prin/banner3.jpg" class="responsive-image">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="content inicio">
-            <h1 class="center-text">
-                <img class="logo" src="img/leaf2.png" alt="">Red Posconsumo
-            </h1>
-        </div>
-        <div class="content">
-            <h4 class="center-text" id="subTitHome">
-                Encuentra donde reciclar</h4>
-        </div>
-        <div class="content">
-            <div class="decoration">
+            <div class="content inicio">
+                <h1 class="center-text">
+                    <img class="logo" src="img/leaf2.png" alt="">Red Posconsumo
+                </h1>
             </div>
-        </div>
-        <div class="content menuPrincipal">
-            <div class="one-half-responsive">
-                <div class="one-third">
-                    <a href="_donde.html#/lugares-medicamentos">
-                        <img class="responsive-image" src="img/categorias/medicament.png" alt="img">
-                        <!-- <h4 class="center-text">Medicamentos</h4>
-						<p class="center-text">Seleccionar</p>-->
-                    </a>
-                </div>
-                <div class="one-third">
-                    <a href="_donde.html#/lugares-pilas">
-                        <img class="responsive-image" src="img/categorias/pilas.png" alt="img">
-                        <!-- <h4 class="center-text">Pilas</h4>
-						<p class="center-text">Seleccionar</p>-->
-                    </a>
-                </div>
-                <div class="one-third last-column">
-                    <a href="_donde.html#/lugares-bupa">
-                        <img class="responsive-image" src="img/categorias/baterias.png" alt="img">
-                        <!--<h4 class="center-text">Baterías Plomo Ácido</h4>
-						<p class="center-text">Seleccionar</p>-->
-                    </a>
+            <div class="content">
+                <h4 class="center-text" id="subTitHome">
+                    Encuentra donde reciclar</h4>
+            </div>
+            <div class="content">
+                <div class="decoration">
                 </div>
             </div>
-            <div class="decoration hide-if-responsive" id="decoration-intermedio">
-            </div>
-            <div class="one-half-responsive last-column">
-                <div class="one-third">
-                    <a href="_donde.html#/lugares-llantas">
-                        <img class="responsive-image" src="img/categorias/llantas.png" alt="img">
-                        <!--<h4 class="center-text">Llantas</h4>
+            <div class="content menuPrincipal">
+                <div class="one-half-responsive">
+                    <div class="one-third">
+                        <a href="_donde.html#/lugares-medicamentos">
+                            <img class="responsive-image" src="img/categorias/medicament.png" alt="img">
+                            <!-- <h4 class="center-text">Medicamentos</h4>
 						<p class="center-text">Seleccionar</p>-->
-                    </a>
-                </div>
-                <div class="one-third">
-                    <a href="_donde.html#/lugares-bombillas">
-                        <img class="responsive-image" src="img/categorias/bombillas.png" alt="img">
-                        <!--<h4 class="center-text">Bombillas</h4>
+                        </a>
+                    </div>
+                    <div class="one-third">
+                        <a href="_donde.html#/lugares-pilas">
+                            <img class="responsive-image" src="img/categorias/pilas.png" alt="img">
+                            <!-- <h4 class="center-text">Pilas</h4>
 						<p class="center-text">Seleccionar</p>-->
-                    </a>
+                        </a>
+                    </div>
+                    <div class="one-third last-column">
+                        <a href="_donde.html#/lugares-bupa">
+                            <img class="responsive-image" src="img/categorias/baterias.png" alt="img">
+                            <!--<h4 class="center-text">Baterías Plomo Ácido</h4>
+						<p class="center-text">Seleccionar</p>-->
+                        </a>
+                    </div>
                 </div>
-                <div ng-click="mostrar('computadores')" class="one-third last-column">
-                    <a href="_donde.html#/lugares-computadores">
-                        <img class="responsive-image" src="img/categorias/pcs.png" alt="img">
-                        <!--  <h4 class="center-text">Computadores e impresoras</h4>
+                <div class="decoration hide-if-responsive" id="decoration-intermedio">
+                </div>
+                <div class="one-half-responsive last-column">
+                    <div class="one-third">
+                        <a href="_donde.html#/lugares-llantas">
+                            <img class="responsive-image" src="img/categorias/llantas.png" alt="img">
+                            <!--<h4 class="center-text">Llantas</h4>
+						<p class="center-text">Seleccionar</p>-->
+                        </a>
+                    </div>
+                    <div class="one-third">
+                        <a href="_donde.html#/lugares-bombillas">
+                            <img class="responsive-image" src="img/categorias/bombillas.png" alt="img">
+                            <!--<h4 class="center-text">Bombillas</h4>
+						<p class="center-text">Seleccionar</p>-->
+                        </a>
+                    </div>
+                    <div ng-click="mostrar('computadores')" class="one-third last-column">
+                        <a href="_donde.html#/lugares-computadores">
+                            <img class="responsive-image" src="img/categorias/pcs.png" alt="img">
+                            <!--  <h4 class="center-text">Computadores e impresoras</h4>
 						<p class="center-text">Seleccionar</p> -->
-                    </a>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- <div class="content">
-                <img class="footer"  src="img/Picture1.jpg" alt="">
-            </div>-->
     </div>
     <script type="text/javascript">
         app.initialize()
@@ -238,9 +222,9 @@ Porque despues de usar, hay que colectar
             }
 
             function onBackKeyDown() {
-                    navigator.app.exitApp();
+                navigator.app.exitApp();
             }
-            
+
             configurar_db();
         });
         
