@@ -540,7 +540,7 @@ display: none;
 
 @media (min-height: 500px){
     .indexContent{
-        min-height: 550px !important;
+        min-height: 570px !important;
     }
 }
 
@@ -576,7 +576,7 @@ display: none;
 
 @media (min-height: 1100px){
     .indexContent{
-        min-height: 1124px !important;
+        min-height: 1180px !important;
     }
 }
 
@@ -586,7 +586,19 @@ display: none;
     }
 }
 
-@media (min-height: 1900px){
+@media (min-height: 1300px){
+    .indexContent{
+        min-height: 1385px !important;
+    }
+}
+
+@media (min-height: 1400px){
+    .indexContent{
+        min-height: 1485px !important;
+    }
+}
+
+@media (min-height: 1800px){
     .indexContent{
         min-height: 1930px !important;
     }
