@@ -62,9 +62,6 @@
       <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
 
-
-
-
   <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
     <preference name="prerendered-icon" value="true" />
@@ -121,7 +118,8 @@
     <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
     <gap:plugin name="org.apache.cordova.geolocation" version="0.3.7" />
     <gap:plugin name="org.li8.inappbrowser" version="0.1" />
-
+    <gap:plugin name="com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover" version="0.0.2" />
+  
     <access origin="*" />
 
     <content src="registro.html" />
