@@ -41,8 +41,6 @@ ambienteApp.controller( 'LugaresCategoriasCtrl', ['$scope', '$http', '$location'
         $scope.categoria = $routeParams.categoria
 
         $scope.state = "Cargando departamentos..."
-        //...................................toolbar.hide().............//
-        toolbar.hide()
         mostrarCargando("Cargando departamentos")
         getDeptos(function (departamentos) {
             $scope.departs = departamentos
@@ -63,8 +61,7 @@ ambienteApp.controller( 'LugaresCategoriasCtrl', ['$scope', '$http', '$location'
         $scope.cargarMunicipios = function () {
 
             $scope.state = "Cargando municipios..."
-            //...................................toolbar.hide().............//
-            toolbar.hide()
+            
             var CodDpto = $scope.deptoSel;
             mostrarCargando("Cargando municipios");
             $.getJSON(
