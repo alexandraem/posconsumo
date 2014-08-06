@@ -6,7 +6,7 @@
                 <h1 class="left-text">{{categoria|uppercase}}</h1>
                 <!--<em class="left-text">{{categoria.descripcion}}</em>-->
                 <div class="overlay"></div>
-                <img class="responsive-image" src="img/campanias/campanias.png" alt="img">
+                <img class="responsive-image" src="img/campanias/campanias.png" alt="{{categoria|uppercase}}">
             </div>
 
 
@@ -18,13 +18,13 @@
 
     <div class="content" id="contador">
         <div style="padding:13px;" ng-click="cantidad = cantidad+1">
-            <img src="libs/theme/code/images/lists/up_48.png" >
+            <img src="libs/theme/code/images/lists/up_48.png" alt="Aumentar cantidad">
         </div>
 
         <div class="cantidad"><input type="text" id="cantTxt" value="{{cantidad}}"  ng-keyup="calcularValor()" ng-init="cantidad=0" maxlength="5"></div>
 
         <div style="padding:13px;" ng-click="cantidad = cantidad-1" ng-show="cantidad>0">
-            <img src="libs/theme/code/images/lists/down_48.png" >
+            <img src="libs/theme/code/images/lists/down_48.png" alt="Disminuir cantidad">
         </div>
     </div>
 
