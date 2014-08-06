@@ -1,34 +1,42 @@
 <div class="btnVolver">
-    <p id="cargando"> {{state}} </p>
-    <button class="button button-green btnRgis" onclick="Volver()">Volver</button>
+    <p id="cargando">
+        {{state}}
+    </p>
+    <button class="button button-green btnRgis" onclick="Volver()">
+        Volver</button>
 </div>
-
 <div class="content-section">
- <label id="lblCat">{{categoria|uppercase}}</label>
-                <label  class="lblCombosFiltro">Seleccione un departamento</label>
-                <select id="combo_departamento" name="combo_departamento" class="CombosFiltro" ng-change="cargarMuniciChange()" ng-model="deptoSel" ng-options="depar.codigo as depar.nombre for depar in departs">
-                </select>
-
-
-                <label class="lblCombosFiltro">Seleccione un municipio</label>
-                <select id="combo_municipio" name="combo_municipio" class="CombosFiltro" ng-model="munSel" ng-options="mun.codigomunicipio as mun.nombremunicipio for mun in municipios">
-                </select>
-                
-                <div id="btnBuscar">
-                    <button class="button button-green" ng-click="listadoLugares()">Ver lista</button>
-                    <button class="button button-green" ng-click="verMapa()">Ver mapa</button>
-                </div>
+    <label id="lblCat">
+        {{categoria|uppercase}}</label>
+    <label class="lblCombosFiltro">
+        Seleccione un departamento</label>
+    <select id="combo_departamento" name="combo_departamento" class="CombosFiltro" ng-change="cargarMuniciChange()"
+        ng-model="deptoSel" ng-options="depar.codigo as depar.nombre for depar in departs">
+    </select>
+    <label class="lblCombosFiltro">
+        Seleccione un municipio</label>
+    <select id="combo_municipio" name="combo_municipio" class="CombosFiltro" ng-model="munSel"
+        ng-options="mun.codigomunicipio as mun.nombremunicipio for mun in municipios">
+    </select>
+    <div id="btnBuscar">
+        <button class="button button-green" ng-click="listadoLugares()">
+            Ver lista</button>
+        <button class="button button-green" ng-click="verMapa()">
+            Ver mapa</button>
+    </div>
 </div>
-
-    <div ng-repeat="lugar in puntos" class="content" >
-        <div class="lugar">
-            <h4>{{lugar.vocero}}</h4>
-            <p>{{lugar.direccion}}</p>
-           <!-- <p>{{lugar.subcategoria}}</p>-->
-        </div>
-        <div class="decoration"></div>
+<div ng-repeat="lugar in puntos" class="content">
+    <div class="lugar">
+        <h4>
+            {{lugar.vocero}}</h4>
+        <p>
+            {{lugar.direccion}}</p>
+        <!-- <p>{{lugar.subcategoria}}</p>-->
     </div>
-
-    <div ng-show="puntos.length <= 0">
-        <p class="msj"> No existen puntos de recolección en esta ubicación</p>
+    <div class="decoration">
     </div>
+</div>
+<div ng-show="puntos.length <= 0">
+    <p class="msj">
+        No existen puntos de recolección en esta ubicación</p>
+</div>
