@@ -14,6 +14,7 @@ $(document).ready(function(){
 
 	$('.close-nav, .sidebar-close').click(function(){
 		snapper.close();
+		console.log("close")
 	});
 
 	$('.wide-image').click(function(){
@@ -29,8 +30,10 @@ $(document).ready(function(){
 		//$(this).toggleClass('remove-sidebar');
 		if( snapper.state().state=="left" ){
 			snapper.close();
+			console.log("close")
 		} else {
 			snapper.open('left');
+			console.log("open")
 		}
 		return false;
 	});
