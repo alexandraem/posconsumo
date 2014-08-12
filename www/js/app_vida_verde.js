@@ -36,23 +36,24 @@ ambienteApp.config(function($sceDelegateProvider) {
 
         $scope.video_click = function (url_youtube) {
             console.log("click", url_youtube)
-            $.magnificPopup.open({
-                items: {
-                    src: url_youtube,
-                    type: 'iframe'
-                },
-                type: 'iframe',
-                fixedContentPos: true,
-                closeOnContentClick: false,
-                closeBtnInside: false,
-                iframe: {
-                    patterns: {
-                        youtube: {
-                            src: 'https://www.youtube.com/embed/%id%?autoplay=1'
-                        }
-                    }
-                }
-            });
+            openLinkInBrow(url_youtube);
+            //            $.magnificPopup.open({
+            //                items: {
+            //                    src: url_youtube,
+            //                    type: 'iframe'
+            //                },
+            //                type: 'iframe',
+            //                fixedContentPos: true,
+            //                closeOnContentClick: false,
+            //                closeBtnInside: false,
+            //                iframe: {
+            //                    patterns: {
+            //                        youtube: {
+            //                            src: 'https://www.youtube.com/embed/%id%?autoplay=1'
+            //                        }
+            //                    }
+            //                }
+            //            });
         }
 
         $scope.thumbnail_youtube = function (youtube_url) {
@@ -98,4 +99,10 @@ function getVideos( success ){
         function(data, textStatus, jqXHR){
             success(data.d)
         })
-}
+    }
+
+    function openLinkInBrow(url) {
+        
+        window.open(encodeURI(url), '_system');
+       
+    }
