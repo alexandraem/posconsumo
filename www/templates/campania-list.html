@@ -1,7 +1,7 @@
 <div ng-repeat="campain in campaniaLista">
     <div ng-click="mostrar( campain )" class="divEspacioBlanco">
         <img class="responsive-image imgEspacioBlanco" ng-src="{{campain.imagen}}" alt="{{campain.nombre}}">
-        <h4>{{campain.nombre}}</h4>
+        <label class="h4Negro">{{campain.nombre}}</label>
         <p>{{campain.meta}}</p>
         <ul class="icon-list">
             <li class="calendar-list">{{campain.fecha}}</li>

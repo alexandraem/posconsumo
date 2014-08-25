@@ -7,9 +7,7 @@ body .maps-container{
 .lugar{
     margin-bottom: 10px;
 }
-.lugar h4{
-    margin-bottom: 5px;
-}
+
 .lugar p{
     margin-bottom: 0;
 }
@@ -23,10 +21,13 @@ body .static-notification-blue p{
 
 .titulo-pregunta,
 .feed-respuesta{
-    font-weight: 300;
-line-height: 26px;
-text-align: center;
-padding: 20px 0;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #1f1f1f; 
 }
 body .button{
     font-size: 16px;
@@ -241,6 +242,7 @@ body .button{
 .subTitRegistro{
     color: #9F9C9C;
     font-weight: normal;
+    font-family: 'Lato', sans-serif;
 }
 
 #logoRegistro{
@@ -328,6 +330,7 @@ body .button{
 
 .p-acerca{
     margin:0;
+    font-size:13px;
 }
 
 #p-nombres{
@@ -340,14 +343,16 @@ body .button{
 }
 
 #TitDesarrollado{
-    font-weight: 900;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 5px;
 }
 
 #subTitApoyo{
     font-weight: bold;
-    font-weight: bold;
     margin-top: 10px;
     margin-bottom: 0;
+    font-size: 15px;
 }
 
 #subTitVersion{
@@ -370,9 +375,6 @@ body .button{
     margin: 0 auto;
 }
 
-.h4Cat{
-    font-size: 11px;
-}
 
 #dvganar
 {
@@ -423,6 +425,77 @@ margin-top: 20px;
    background-color: #ffffff !important;
    background: #ffffff !important;
 }
+
+/***********Remplazo de etiquetas h*********************/
+.h4Negro
+{
+    font-family: 'Lato', sans-serif;
+    color: #1f1f1f; 
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: 800;
+    display: block;
+}
+
+.h1Negro
+{
+    font-family: 'Lato', sans-serif;
+    color: #1f1f1f; 
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 800;
+    display: block;
+}
+
+.h1TitBlanco
+{
+    font-size: 17px;
+    position: absolute;
+    color: #FFFFFF;
+    margin-top: 20px;
+    left: 20px;
+    z-index: 99999;
+    text-align: left;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 10px;
+    font-weight: 800;
+    display: block;
+}
+
+.h4Blanco
+{
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 0;
+    font-weight: 800;
+    display: block;
+    font-size: 18px;
+    color: #FFFFFF;
+    margin-bottom: 0px;
+ }
+    
+.h4Cat{
+    font-size: 11px;
+}
+
+.h14{
+    font-size: 14px;
+}
+
+.hBottom0{
+   margin-bottom: 0;
+}    
+
+.lugar label{
+    margin-bottom: 5px;
+}
+
+.labelNombre
+{
+    font-weight: 700;
+ }
+
+/*************************************************/
+
 
 /*********Pruebas sin internet*********************/
 #sinInternet{
