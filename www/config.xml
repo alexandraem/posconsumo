@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.engenial.posconsumo"
-    version="1.0.0"
+    version="1.0.1"
     xmlns="http://www.w3.org/ns/widgets"
     xmlns:gap="http://phonegap.com/ns/1.0" >
 
-    <preference name="phonegap-version" value="3.3.0" />
+    <preference name="phonegap-version" value="3.6.3" />
 
     <name>Red Posconsumo</name>
 
@@ -108,6 +108,7 @@
     <gap:splash gap:platform="blackberry" src="res/screen/blackberry/screen-225.png" />
     <gap:splash gap:platform="ios" height="480" src="res/screen/ios/screen-iphone-portrait.png" width="320" />
     <gap:splash gap:platform="ios" height="960" src="res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
+    <gap:splash gap:platform="ios" height="1136" src="res/screen/ios/screen-iphone-portrait-568h-2x.png" width="640"/>
     <gap:splash gap:platform="ios" height="1024" src="res/screen/ios/screen-ipad-portrait.png" width="768" />
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
